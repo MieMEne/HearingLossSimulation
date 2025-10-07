@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CafeSoundTest : MonoBehaviour
+public class AudioController: MonoBehaviour
 {
     public AudioSource cafeSoundSource;
 
@@ -10,10 +10,11 @@ public class CafeSoundTest : MonoBehaviour
         {
             cafeSoundSource.Play();
             Debug.Log("Playing cafe sound...");
+            Debug.Log("Playing");
         }
         else
         {
-            Debug.LogWarning("No AudioSource assigned!");
+            Debug.Log("No AudioSource assigned!");
         }
     }
 }
