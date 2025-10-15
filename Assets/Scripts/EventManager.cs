@@ -12,10 +12,12 @@ public class StoryEvent
     public List<AudioSource> speakerSources = new List<AudioSource>(); // multiple characters
     public float timeBetweenClips = 0.5f;
 
-    public enum UIType { None, Timed, Choice }
+    [Header("Animations")]
+    public List<TalkingAnimations> talkingAnimations = new List<TalkingAnimations>(); // multiple animators
 
     [Header("UI")]
     public GameObject uiToShow;
+    public enum UIType { None, Timed, Choice }
     public UIType uiType = UIType.None;
     public float uiDuration = 3f; // only used if UIType.Timed
 
@@ -23,7 +25,7 @@ public class StoryEvent
     public WaiterWalking waiterToStart;
 
     [Header("Timing")]
-    public float waitTimeAfter = 1f; // new: delay after this event
+    public float waitTimeAfter = 1f; // delay after this event
 }
 
 public class EventManager : MonoBehaviour
@@ -52,6 +54,19 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("▶ Running event: " + e.eventName);
 
+        // ---- FIX: Wait a frame to ensure all animators are initialized ----
+        yield return null;
+
+        // Start all talking animations for this event
+        if (e.talkingAnimations != null && e.talkingAnimations.Count > 0)
+        {
+            foreach (var anim in e.talkingAnimations)
+            {
+                if (anim != null)
+                    anim.PlaySequence();
+            }
+        }
+
         // Play all audio sources simultaneously
         if (e.speakerSources != null && e.speakerSources.Count > 0)
         {
@@ -61,6 +76,7 @@ public class EventManager : MonoBehaviour
                     source.Play();
             }
 
+            // Wait for the longest clip
             float maxLength = 0f;
             foreach (AudioSource source in e.speakerSources)
             {
@@ -97,8 +113,6 @@ public class EventManager : MonoBehaviour
         if (e.waiterToStart != null)
         {
             e.waiterToStart.StartWalking();
-
-            // Wait until waiter has finished walking
             yield return new WaitUntil(() => e.waiterToStart.IsWalking() == false);
         }
 
