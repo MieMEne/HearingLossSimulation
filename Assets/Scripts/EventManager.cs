@@ -5,34 +5,31 @@ using System.Collections.Generic;
 [System.Serializable]
 public class StoryEvent
 {
-    [Header("General Info")]
+    [Header("Event Info")]
     public string eventName;
 
     [Header("Audio")]
     public List<AudioSource> speakerSources = new List<AudioSource>(); // multiple characters
-    public float timeBetweenClips = 0.5f;                              // optional delay after audio
+    public float timeBetweenClips = 0.5f;
 
-   [Header("UI")]
+    public enum UIType { None, Timed, Choice }
+
+    [Header("UI")]
     public GameObject uiToShow;
-    public float uiDuration = 3f; // duration the UI stays active
-
-    [Header("Character Movement")]
-    public GameObject actorToMove;
-    public Transform targetPosition;
-    public float moveDuration = 2f;
+    public UIType uiType = UIType.None;
+    public float uiDuration = 3f; // only used if UIType.Timed
 
     [Header("Special Actions")]
-    public WaiterWalking waiterToStart; // special scripts like waiter walking
+    public WaiterWalking waiterToStart;
 
     [Header("Timing")]
-    public float waitTimeBefore = 0f;
-    public float waitTimeAfter = 0.5f;
+    public float waitTimeAfter = 1f; // new: delay after this event
 }
 
 public class EventManager : MonoBehaviour
 {
-    [Header("Story Setup")]
-    public StoryEvent[] events; // list of story events
+    [Header("Story Events")]
+    public StoryEvent[] events;
     private int currentIndex = 0;
 
     void Start()
@@ -55,11 +52,7 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("▶ Running event: " + e.eventName);
 
-        // Optional delay before event
-        if (e.waitTimeBefore > 0)
-            yield return new WaitForSeconds(e.waitTimeBefore);
-
-        // 🎙️ Play all AudioSources simultaneously
+        // Play all audio sources simultaneously
         if (e.speakerSources != null && e.speakerSources.Count > 0)
         {
             foreach (AudioSource source in e.speakerSources)
@@ -68,13 +61,13 @@ public class EventManager : MonoBehaviour
                     source.Play();
             }
 
-            // Wait until the longest clip finishes
             float maxLength = 0f;
             foreach (AudioSource source in e.speakerSources)
             {
                 if (source != null && source.clip != null)
                     maxLength = Mathf.Max(maxLength, source.clip.length);
             }
+
             yield return new WaitForSeconds(maxLength + e.timeBetweenClips);
         }
 
@@ -83,40 +76,34 @@ public class EventManager : MonoBehaviour
         {
             e.uiToShow.SetActive(true);
 
-            // Wait for specified duration
-            yield return new WaitForSeconds(e.uiDuration);
-
-            // Hide UI
-            e.uiToShow.SetActive(false);
+            if (e.uiType == StoryEvent.UIType.Timed)
+            {
+                yield return new WaitForSeconds(e.uiDuration);
+                e.uiToShow.SetActive(false);
+            }
+            else if (e.uiType == StoryEvent.UIType.Choice)
+            {
+                ChoiceUI choice = e.uiToShow.GetComponent<ChoiceUI>();
+                if (choice != null)
+                {
+                    choice.ResetChoice();
+                    yield return new WaitUntil(() => choice.buttonPressed);
+                    e.uiToShow.SetActive(false);
+                }
+            }
         }
 
-
-        // 🚶 Move actor if assigned
-        if (e.actorToMove != null && e.targetPosition != null)
-        {
-            yield return StartCoroutine(MoveActor(e.actorToMove, e.targetPosition.position, e.moveDuration));
-        }
-
-        // 🧑‍🍳 Trigger special actions like WaiterWalking
+        // Trigger waiter walking if assigned
         if (e.waiterToStart != null)
         {
             e.waiterToStart.StartWalking();
+
+            // Wait until waiter has finished walking
+            yield return new WaitUntil(() => e.waiterToStart.IsWalking() == false);
         }
 
-        // Optional delay after event
+        // Wait additional time if set
         if (e.waitTimeAfter > 0)
             yield return new WaitForSeconds(e.waitTimeAfter);
-    }
-
-    IEnumerator MoveActor(GameObject actor, Vector3 target, float duration)
-    {
-        Vector3 start = actor.transform.position;
-        float t = 0;
-        while (t < 1)
-        {
-            t += Time.deltaTime / duration;
-            actor.transform.position = Vector3.Lerp(start, target, t);
-            yield return null;
-        }
     }
 }

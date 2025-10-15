@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class WaiterWalking : MonoBehaviour
 {
-    public Transform[] targets;       // Array of points to walk to
+    public Transform[] targets;       
     public float stopDistance = 0.25f;
     public float turnSpeed = 8f;
-    public float startDelay = 0f;
 
     Animator anim;
     bool walking;
@@ -18,26 +17,12 @@ public class WaiterWalking : MonoBehaviour
         anim.SetBool("IsWalking", false);
     }
 
-    void Start()
-    {
-        if (startDelay <= 0f) BeginWalk();
-        else Invoke(nameof(BeginWalk), startDelay);
-    }
-
-    void BeginWalk()
-    {
-        if (targets.Length == 0) return;
-        walking = true;
-        anim.SetBool("IsWalking", true);
-    }
-
     void Update()
     {
         if (!walking || targets.Length == 0) return;
 
         Transform target = targets[currentTargetIndex];
 
-        // Drej mod mål i horisontal plan
         Vector3 to = target.position - transform.position;
         Vector3 flat = new Vector3(to.x, 0f, to.z);
         float dist = flat.magnitude;
@@ -52,12 +37,9 @@ public class WaiterWalking : MonoBehaviour
         }
         else
         {
-            // Stop ved mål → gå til næste punkt
             currentTargetIndex++;
-
             if (currentTargetIndex >= targets.Length)
             {
-                // Ingen flere punkter → stå stille
                 walking = false;
                 anim.SetBool("IsWalking", false);
             }
@@ -68,21 +50,23 @@ public class WaiterWalking : MonoBehaviour
     {
         if (anim == null || !walking) return;
 
-        // Calculate forward movement manually
-        float moveSpeed = anim.deltaPosition.magnitude / Time.deltaTime; // use animation’s speed
+        float moveSpeed = anim.deltaPosition.magnitude / Time.deltaTime;
         Vector3 forward = transform.forward * moveSpeed * Time.deltaTime;
-
-        // Move forward only in XZ plane
         forward.y = 0f;
         transform.position += forward;
-
-        // Keep rotation from animation
         transform.rotation *= anim.deltaRotation;
     }
+
+    // Call this from EventManager when the event triggers
     public void StartWalking()
     {
         if (targets.Length == 0) return;
         walking = true;
         anim.SetBool("IsWalking", true);
+        currentTargetIndex = 0; // start from first target
+    }
+    public bool IsWalking()
+    {
+        return walking;
     }
 }
