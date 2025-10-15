@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MarioScene.unity
     guid: a070bb25e665e4232a942b07452c0802
   - enabled: 1
-    path: Assets/Scenes/MarioScene(Audio).unity
+    path: Assets/Scenes/EventManager.unity
     guid: c4eff2380b6f7427da023830b513548b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

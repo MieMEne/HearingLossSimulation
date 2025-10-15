@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class StoryEvent
@@ -8,16 +9,20 @@ public class StoryEvent
     public string eventName;
 
     [Header("Audio")]
-    public AudioClip[] voiceClips;        // multiple audio clips
-    public float timeBetweenClips = 0.5f; // time interval between clips
+    public List<AudioSource> speakerSources = new List<AudioSource>(); // multiple characters
+    public float timeBetweenClips = 0.5f;                              // optional delay after audio
 
-    [Header("UI")]
+   [Header("UI")]
     public GameObject uiToShow;
+    public float uiDuration = 3f; // duration the UI stays active
 
     [Header("Character Movement")]
     public GameObject actorToMove;
     public Transform targetPosition;
     public float moveDuration = 2f;
+
+    [Header("Special Actions")]
+    public WaiterWalking waiterToStart; // special scripts like waiter walking
 
     [Header("Timing")]
     public float waitTimeBefore = 0f;
@@ -27,9 +32,8 @@ public class StoryEvent
 public class EventManager : MonoBehaviour
 {
     [Header("Story Setup")]
-    public StoryEvent[] events;        // list of story events
-    public AudioSource audioSource;    // plays dialogue and sound
-    private int currentIndex = 0;      // keeps track of progress
+    public StoryEvent[] events; // list of story events
+    private int currentIndex = 0;
 
     void Start()
     {
@@ -55,36 +59,48 @@ public class EventManager : MonoBehaviour
         if (e.waitTimeBefore > 0)
             yield return new WaitForSeconds(e.waitTimeBefore);
 
-        // 🎙️ Play multiple audio clips
-        if (e.voiceClips != null && e.voiceClips.Length > 0 && audioSource != null)
+        // 🎙️ Play all AudioSources simultaneously
+        if (e.speakerSources != null && e.speakerSources.Count > 0)
         {
-            foreach (AudioClip clip in e.voiceClips)
+            foreach (AudioSource source in e.speakerSources)
             {
-                if (clip != null)
-                {
-                    audioSource.clip = clip;
-                    audioSource.Play();
-                    yield return new WaitWhile(() => audioSource.isPlaying);
-
-                    // Wait interval between clips
-                    if (e.timeBetweenClips > 0)
-                        yield return new WaitForSeconds(e.timeBetweenClips);
-                }
+                if (source != null && source.clip != null)
+                    source.Play();
             }
+
+            // Wait until the longest clip finishes
+            float maxLength = 0f;
+            foreach (AudioSource source in e.speakerSources)
+            {
+                if (source != null && source.clip != null)
+                    maxLength = Mathf.Max(maxLength, source.clip.length);
+            }
+            yield return new WaitForSeconds(maxLength + e.timeBetweenClips);
         }
 
-        // 💬 Show UI
+        // Show UI if assigned
         if (e.uiToShow != null)
         {
             e.uiToShow.SetActive(true);
-            // Wait until UI hides itself (after player answers)
-            yield return new WaitUntil(() => e.uiToShow.activeSelf == false);
+
+            // Wait for specified duration
+            yield return new WaitForSeconds(e.uiDuration);
+
+            // Hide UI
+            e.uiToShow.SetActive(false);
         }
 
-        // 🚶 Move actor
+
+        // 🚶 Move actor if assigned
         if (e.actorToMove != null && e.targetPosition != null)
         {
             yield return StartCoroutine(MoveActor(e.actorToMove, e.targetPosition.position, e.moveDuration));
+        }
+
+        // 🧑‍🍳 Trigger special actions like WaiterWalking
+        if (e.waiterToStart != null)
+        {
+            e.waiterToStart.StartWalking();
         }
 
         // Optional delay after event

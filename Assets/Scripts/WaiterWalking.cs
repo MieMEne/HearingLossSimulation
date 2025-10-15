@@ -2,19 +2,20 @@ using UnityEngine;
 
 public class WaiterWalking : MonoBehaviour
 {
-    public Transform target;
+    public Transform[] targets;       // Array of points to walk to
     public float stopDistance = 0.25f;
-    public float turnSpeed = 8f;          // hvor hurtigt vi drejer mod målet
-    public float startDelay = 0f;         // fx 2f hvis han skal stå først
+    public float turnSpeed = 8f;
+    public float startDelay = 0f;
 
     Animator anim;
     bool walking;
+    int currentTargetIndex = 0;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
-        anim.applyRootMotion = true;          // vigtigt!
-        anim.SetBool("IsWalking", false);     // start i idle
+        anim.applyRootMotion = true;
+        anim.SetBool("IsWalking", false);
     }
 
     void Start()
@@ -25,14 +26,16 @@ public class WaiterWalking : MonoBehaviour
 
     void BeginWalk()
     {
-        if (target == null) return;
+        if (targets.Length == 0) return;
         walking = true;
         anim.SetBool("IsWalking", true);
     }
 
     void Update()
     {
-        if (!walking || target == null) return;
+        if (!walking || targets.Length == 0) return;
+
+        Transform target = targets[currentTargetIndex];
 
         // Drej mod mål i horisontal plan
         Vector3 to = target.position - transform.position;
@@ -49,24 +52,37 @@ public class WaiterWalking : MonoBehaviour
         }
         else
         {
-            // Stop ved mål → tilbage til idle
-            walking = false;
-            anim.SetBool("IsWalking", false);
+            // Stop ved mål → gå til næste punkt
+            currentTargetIndex++;
+
+            if (currentTargetIndex >= targets.Length)
+            {
+                // Ingen flere punkter → stå stille
+                walking = false;
+                anim.SetBool("IsWalking", false);
+            }
         }
     }
 
-    // Her sker selve root-motion flytningen
     void OnAnimatorMove()
     {
-        if (anim == null) return;
+        if (anim == null || !walking) return;
 
-        // Kun lad animationen flytte når vi faktisk går
-        if (walking)
-        {
-            // Brug delta fra anim til position/rotation
-            transform.position += anim.deltaPosition;   // fremdrift fra walk-anim
-            transform.rotation *= anim.deltaRotation;   // hvis din anim også roterer
-        }
-        // Når walking = false, gør vi intet → står stille i Idle
+        // Calculate forward movement manually
+        float moveSpeed = anim.deltaPosition.magnitude / Time.deltaTime; // use animation’s speed
+        Vector3 forward = transform.forward * moveSpeed * Time.deltaTime;
+
+        // Move forward only in XZ plane
+        forward.y = 0f;
+        transform.position += forward;
+
+        // Keep rotation from animation
+        transform.rotation *= anim.deltaRotation;
+    }
+    public void StartWalking()
+    {
+        if (targets.Length == 0) return;
+        walking = true;
+        anim.SetBool("IsWalking", true);
     }
 }
