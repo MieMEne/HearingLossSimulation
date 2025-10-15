@@ -2335,6 +2335,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2877119c3d78d254c8bcf522101d144e, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 7314abbb4816e48ffa6f797cff8d9c31, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7666680083751660616, guid: 7314abbb4816e48ffa6f797cff8d9c31, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.00000016402217
@@ -27835,8 +27839,8 @@ MonoBehaviour:
     isTalking: 0
   - time: 60
     isTalking: 1
-  - time: 60
-    isTalking: 1
+  - time: 66
+    isTalking: 0
 --- !u!1 &1382525112
 GameObject:
   m_ObjectHideFlags: 0
@@ -40018,6 +40022,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2877119c3d78d254c8bcf522101d144e, type: 2}
+    - target: {fileID: 5866666021909216657, guid: ed0856b272be443a8be550ac1e004094, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
