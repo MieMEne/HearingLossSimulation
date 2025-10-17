@@ -19,7 +19,13 @@ public class StoryEvent
     public GameObject uiToShow;
     public enum UIType { None, Timed, Choice }
     public UIType uiType = UIType.None;
-    public float uiDuration = 3f; // only used if UIType.Timed
+    public float uiDuration = 3f; // used only if Timed
+
+    [Header("Choice Branching (for Choice UI only)")]
+    [Tooltip("Index of next event if first choice is pressed (-1 = continue normally)")]
+    public int nextEventIfChoice0 = -1;
+    [Tooltip("Index of next event if second choice is pressed (-1 = continue normally)")]
+    public int nextEventIfChoice1 = -1;
 
     [Header("Special Actions")]
     public WaiterWalking waiterToStart;
@@ -54,10 +60,10 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("▶ Running event: " + e.eventName);
 
-        // ---- FIX: Wait a frame to ensure all animators are initialized ----
+        // ensure animators are ready
         yield return null;
 
-        // Start all talking animations for this event
+        // ---- Talking animations ----
         if (e.talkingAnimations != null && e.talkingAnimations.Count > 0)
         {
             foreach (var anim in e.talkingAnimations)
@@ -67,7 +73,7 @@ public class EventManager : MonoBehaviour
             }
         }
 
-        // Play all audio sources simultaneously
+        // ---- Audio ----
         if (e.speakerSources != null && e.speakerSources.Count > 0)
         {
             foreach (AudioSource source in e.speakerSources)
@@ -76,7 +82,7 @@ public class EventManager : MonoBehaviour
                     source.Play();
             }
 
-            // Wait for the longest clip
+            // Wait for longest clip
             float maxLength = 0f;
             foreach (AudioSource source in e.speakerSources)
             {
@@ -87,7 +93,7 @@ public class EventManager : MonoBehaviour
             yield return new WaitForSeconds(maxLength + e.timeBetweenClips);
         }
 
-        // Show UI if assigned
+        // ---- UI ----
         if (e.uiToShow != null)
         {
             e.uiToShow.SetActive(true);
@@ -105,18 +111,34 @@ public class EventManager : MonoBehaviour
                     choice.ResetChoice();
                     yield return new WaitUntil(() => choice.buttonPressed);
                     e.uiToShow.SetActive(false);
+
+                    // ---- Branching Logic ----
+                    if (choice.chosenIndex == 0 && e.nextEventIfChoice0 >= 0)
+                    {
+                        Debug.Log($"Player chose option 0 → jumping to event index {e.nextEventIfChoice0}");
+                        currentIndex = e.nextEventIfChoice0 - 1; // -1 because PlayStory adds +1
+                    }
+                    else if (choice.chosenIndex == 1 && e.nextEventIfChoice1 >= 0)
+                    {
+                        Debug.Log($"Player chose option 1 → jumping to event index {e.nextEventIfChoice1}");
+                        currentIndex = e.nextEventIfChoice1 - 1;
+                    }
+                    else
+                    {
+                        Debug.Log("No special branch; continuing sequentially");
+                    }
                 }
             }
         }
 
-        // Trigger waiter walking if assigned
+        // ---- Waiter Action ----
         if (e.waiterToStart != null)
         {
             e.waiterToStart.StartWalking();
             yield return new WaitUntil(() => e.waiterToStart.IsWalking() == false);
         }
 
-        // Wait additional time if set
+        // ---- Wait after ----
         if (e.waitTimeAfter > 0)
             yield return new WaitForSeconds(e.waitTimeAfter);
     }
