@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 14712606}
   - component: {fileID: 14712605}
   - component: {fileID: 14712604}
+  - component: {fileID: 14712610}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -554,6 +555,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &14712610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14712603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6bd995b9a70504799428d9cb5a12e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &16403879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5081,7 +5094,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 073159f2f686f0842bb84c1aac6c87f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1327464658}
   m_SourcePrefab: {fileID: 100100000, guid: 073159f2f686f0842bb84c1aac6c87f3, type: 3}
 --- !u!4 &295821285 stripped
 Transform:
@@ -27396,17 +27412,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-  - eventName: Waiter speaks
+  - eventName: Interaction with Menu
     speakerSources: []
     timeBetweenClips: 0
     talkingAnimations: []
-    uiToShow: {fileID: 1841352456}
-    uiType: 2
+    uiToShow: {fileID: 122154929}
+    uiType: 1
+    uiDuration: 5
+    nextEventIfChoice0: -1
+    nextEventIfChoice1: -1
+    grabbableObject: {fileID: 0}
+    eventDuration: 0
+    waiterToStart: {fileID: 0}
+    waitTimeAfter: 5
+  - eventName: interaction
+    speakerSources: []
+    timeBetweenClips: 0
+    talkingAnimations: []
+    uiToShow: {fileID: 0}
+    uiType: 0
     uiDuration: 0
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
+    grabbableObject: {fileID: 14712603}
+    eventDuration: 0
     waiterToStart: {fileID: 0}
-    waitTimeAfter: 1
+    waitTimeAfter: 5
   - eventName: Audio1
     speakerSources:
     - {fileID: 423457820}
@@ -27422,19 +27453,10 @@ MonoBehaviour:
     uiDuration: 3
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
+    grabbableObject: {fileID: 0}
+    eventDuration: 0
     waiterToStart: {fileID: 0}
     waitTimeAfter: 1
-  - eventName: Interaction with Menu
-    speakerSources: []
-    timeBetweenClips: 0
-    talkingAnimations: []
-    uiToShow: {fileID: 122154929}
-    uiType: 1
-    uiDuration: 3
-    nextEventIfChoice0: -1
-    nextEventIfChoice1: -1
-    waiterToStart: {fileID: 0}
-    waitTimeAfter: 0
   - eventName: Waiter comes
     speakerSources: []
     timeBetweenClips: 0
@@ -27444,7 +27466,22 @@ MonoBehaviour:
     uiDuration: 0
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
+    grabbableObject: {fileID: 0}
+    eventDuration: 0
     waiterToStart: {fileID: 690659163}
+    waitTimeAfter: 1
+  - eventName: Waiter speaks
+    speakerSources: []
+    timeBetweenClips: 0
+    talkingAnimations: []
+    uiToShow: {fileID: 1841352456}
+    uiType: 2
+    uiDuration: 0
+    nextEventIfChoice0: -1
+    nextEventIfChoice1: -1
+    grabbableObject: {fileID: 0}
+    eventDuration: 0
+    waiterToStart: {fileID: 0}
     waitTimeAfter: 1
 --- !u!4 &1321488467
 Transform:
@@ -27461,6 +27498,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1327464655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 073159f2f686f0842bb84c1aac6c87f3, type: 3}
+  m_PrefabInstance: {fileID: 295821273}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1327464658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327464655}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.03250377, y: 0.032503773, z: 0.02051516}
+  m_Center: {x: 0.000000014901161, y: 0.000026463535, z: 0.009851293}
 --- !u!1 &1331189532
 GameObject:
   m_ObjectHideFlags: 0

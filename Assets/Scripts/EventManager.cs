@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+
 
 [System.Serializable]
 public class StoryEvent
@@ -9,29 +12,33 @@ public class StoryEvent
     public string eventName;
 
     [Header("Audio")]
-    public List<AudioSource> speakerSources = new List<AudioSource>(); // multiple characters
+    public List<AudioSource> speakerSources = new List<AudioSource>();
     public float timeBetweenClips = 0.5f;
 
     [Header("Animations")]
-    public List<TalkingAnimations> talkingAnimations = new List<TalkingAnimations>(); // multiple animators
+    public List<TalkingAnimations> talkingAnimations = new List<TalkingAnimations>();
 
     [Header("UI")]
     public GameObject uiToShow;
     public enum UIType { None, Timed, Choice }
     public UIType uiType = UIType.None;
-    public float uiDuration = 3f; // used only if Timed
+    public float uiDuration = 3f;
 
     [Header("Choice Branching (for Choice UI only)")]
-    [Tooltip("Index of next event if first choice is pressed (-1 = continue normally)")]
     public int nextEventIfChoice0 = -1;
-    [Tooltip("Index of next event if second choice is pressed (-1 = continue normally)")]
     public int nextEventIfChoice1 = -1;
+
+    [Header("Grabbable Object (optional)")]
+    [Tooltip("An object that becomes interactable only during this event")]
+    public GameObject grabbableObject;
+    [Tooltip("Time allowed for interaction before moving to next event (seconds). 0 = wait until grabbed")]
+    public float eventDuration = 0f;
 
     [Header("Special Actions")]
     public WaiterWalking waiterToStart;
 
     [Header("Timing")]
-    public float waitTimeAfter = 1f; // delay after this event
+    public float waitTimeAfter = 1f;
 }
 
 public class EventManager : MonoBehaviour
@@ -42,6 +49,16 @@ public class EventManager : MonoBehaviour
 
     void Start()
     {
+        // Lock all grabbable objects at start
+        foreach (var e in events)
+        {
+            if (e.grabbableObject != null)
+            {
+                XRGrabInteractable grabInteractable = e.grabbableObject.GetComponent<XRGrabInteractable>();
+                if (grabInteractable != null) grabInteractable.enabled = false;
+            }
+        }
+
         StartCoroutine(PlayStory());
     }
 
@@ -60,10 +77,9 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("▶ Running event: " + e.eventName);
 
-        // ensure animators are ready
         yield return null;
 
-        // ---- Talking animations ----
+        // ---- Talking Animations ----
         if (e.talkingAnimations != null && e.talkingAnimations.Count > 0)
         {
             foreach (var anim in e.talkingAnimations)
@@ -82,7 +98,6 @@ public class EventManager : MonoBehaviour
                     source.Play();
             }
 
-            // Wait for longest clip
             float maxLength = 0f;
             foreach (AudioSource source in e.speakerSources)
             {
@@ -93,7 +108,7 @@ public class EventManager : MonoBehaviour
             yield return new WaitForSeconds(maxLength + e.timeBetweenClips);
         }
 
-        // ---- UI ----
+        // ---- UI Interaction ----
         if (e.uiToShow != null)
         {
             e.uiToShow.SetActive(true);
@@ -115,30 +130,65 @@ public class EventManager : MonoBehaviour
                     // ---- Branching Logic ----
                     if (choice.chosenIndex == 0 && e.nextEventIfChoice0 >= 0)
                     {
-                        Debug.Log($"Player chose option 0 → jumping to event index {e.nextEventIfChoice0}");
-                        currentIndex = e.nextEventIfChoice0 - 1; // -1 because PlayStory adds +1
+                        currentIndex = e.nextEventIfChoice0 - 1;
+                        yield break;
                     }
                     else if (choice.chosenIndex == 1 && e.nextEventIfChoice1 >= 0)
                     {
-                        Debug.Log($"Player chose option 1 → jumping to event index {e.nextEventIfChoice1}");
                         currentIndex = e.nextEventIfChoice1 - 1;
-                    }
-                    else
-                    {
-                        Debug.Log("No special branch; continuing sequentially");
+                        yield break;
                     }
                 }
             }
         }
 
-        // ---- Waiter Action ----
+        // ---- Grabbable Object Interaction ----
+        if (e.grabbableObject != null)
+        {
+            e.grabbableObject.SetActive(true);
+
+            XRGrabInteractable grabInteractable = e.grabbableObject.GetComponent<XRGrabInteractable>();
+            GrabbableEventObject grabObj = e.grabbableObject.GetComponent<GrabbableEventObject>();
+
+            if (grabObj != null) grabObj.ResetGrabState();
+
+            // Enable interaction only while event is active
+            if (grabInteractable != null) grabInteractable.enabled = true;
+
+            if (e.eventDuration > 0f)
+            {
+                float timer = 0f;
+                while ((grabObj == null || !grabObj.HasBeenGrabbed) && timer < e.eventDuration)
+                {
+                    timer += Time.deltaTime;
+                    yield return null;
+                }
+
+                // Lock the object after duration
+                if (grabInteractable != null) grabInteractable.enabled = false;
+
+                if (grabObj != null && grabObj.HasBeenGrabbed)
+                    Debug.Log($"{e.grabbableObject.name} was grabbed during the allowed time.");
+                else
+                    Debug.Log($"{e.grabbableObject.name} interaction time expired.");
+            }
+            else if (grabObj != null)
+            {
+                yield return new WaitUntil(() => grabObj.HasBeenGrabbed);
+                Debug.Log($"{e.grabbableObject.name} was grabbed!");
+            }
+
+            // The object stays visible → DO NOT deactivate
+        }
+
+        // ---- Waiter Walking ----
         if (e.waiterToStart != null)
         {
             e.waiterToStart.StartWalking();
-            yield return new WaitUntil(() => e.waiterToStart.IsWalking() == false);
+            yield return new WaitUntil(() => !e.waiterToStart.IsWalking());
         }
 
-        // ---- Wait after ----
+        // ---- Wait time after ----
         if (e.waitTimeAfter > 0)
             yield return new WaitForSeconds(e.waitTimeAfter);
     }
