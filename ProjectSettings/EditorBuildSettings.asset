@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MarioScene.unity
     guid: a070bb25e665e4232a942b07452c0802
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EventManager.unity
     guid: c4eff2380b6f7427da023830b513548b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/InteractionScene.unity
     guid: 97a2c648c96bf4dbcac5c691454b5529
   m_configObjects:
