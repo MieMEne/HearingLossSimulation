@@ -10545,7 +10545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4808866746549998793, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_FarAttachMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4808866746549998793, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_InteractionManager
@@ -27683,7 +27683,12 @@ MonoBehaviour:
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
     eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
     waitTimeAfter: 1
   - eventName: Waiter comes
@@ -27696,7 +27701,12 @@ MonoBehaviour:
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
     eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 690659163}
     waitTimeAfter: 1
   - eventName: Interaction with Menu
@@ -27709,7 +27719,12 @@ MonoBehaviour:
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
     eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
     waitTimeAfter: 5
   - eventName: Question 1
@@ -27721,8 +27736,13 @@ MonoBehaviour:
     uiDuration: 0
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
-    grabbableObject: {fileID: 0}
+    grabbableObject: {fileID: 1746650929}
+    grabbablePrefab: {fileID: 1746650929}
+    spawnPoint: {fileID: 1746650935}
+    parentToSpawnPoint: 0
     eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 1
     waiterToStart: {fileID: 0}
     waitTimeAfter: 1
   - eventName: interaction
@@ -27735,7 +27755,12 @@ MonoBehaviour:
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
     grabbableObject: {fileID: 14712603}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
     eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
     waitTimeAfter: 5
 --- !u!4 &1321488467
@@ -36918,6 +36943,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030974960, guid: abc00000000008910661298585129256, type: 3}
   m_PrefabInstance: {fileID: 1745779204}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1746650929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 439048476832811402, guid: a3878af496c7d4beea0f38ba3e9a30f0, type: 3}
+  m_PrefabInstance: {fileID: 1993733524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1746650935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1640370698525606534, guid: a3878af496c7d4beea0f38ba3e9a30f0, type: 3}
+  m_PrefabInstance: {fileID: 1993733524}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1747625210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42565,6 +42600,10 @@ PrefabInstance:
     - target: {fileID: 439048476832811402, guid: a3878af496c7d4beea0f38ba3e9a30f0, type: 3}
       propertyPath: m_Name
       value: Cube (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 439048476832811402, guid: a3878af496c7d4beea0f38ba3e9a30f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1640370698525606534, guid: a3878af496c7d4beea0f38ba3e9a30f0, type: 3}
       propertyPath: m_LocalPosition.x
