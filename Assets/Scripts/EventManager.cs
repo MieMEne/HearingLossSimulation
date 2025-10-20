@@ -16,6 +16,7 @@ public class StoryEvent
 
     [Header("Animations")]
     public List<TalkingAnimations> talkingAnimations = new List<TalkingAnimations>();
+    public List<TalkingAnimations2> talkingAnimations2 = new List<TalkingAnimations2>();
 
     [Header("UI")]
     public GameObject uiToShow;
@@ -81,10 +82,17 @@ public class EventManager : MonoBehaviour
         Debug.Log("▶ Running event: " + e.eventName);
         yield return null;
 
-        // ---- Talking Animations ----
+        // ---- Talking Animations 1 ----
         if (e.talkingAnimations != null && e.talkingAnimations.Count > 0)
         {
             foreach (var anim in e.talkingAnimations)
+                anim?.PlaySequence();
+        }
+
+        // ---- Talking Animations 2 ----
+        if (e.talkingAnimations2 != null && e.talkingAnimations2.Count > 0)
+        {
+            foreach (var anim in e.talkingAnimations2)
                 anim?.PlaySequence();
         }
 
@@ -167,7 +175,6 @@ public class EventManager : MonoBehaviour
                 }
                 else
                 {
-                    // If no GrabbableEventObject exists, just enable object and continue
                     EnableAndRestore(go, enable: true);
                 }
             }

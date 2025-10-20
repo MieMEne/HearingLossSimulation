@@ -938,7 +938,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 434611f013b9f427bad2e4410a019024, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2241,7 +2241,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: dfeb7e05b3dcf4ad7b05f5e09934b75e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: -2.96
   Loop: 0
@@ -4299,7 +4299,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 5be22636dda924ba9bf786380e616e48, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -23105,7 +23105,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b5e2a5134b4cc4245a9faa92a0ef2727, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -27405,6 +27405,7 @@ MonoBehaviour:
     - {fileID: 1917753207}
     - {fileID: 1377902820}
     - {fileID: 1938548510}
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 3
@@ -27424,6 +27425,7 @@ MonoBehaviour:
     speakerSources: []
     timeBetweenClips: 0
     talkingAnimations: []
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
@@ -27443,6 +27445,7 @@ MonoBehaviour:
     speakerSources: []
     timeBetweenClips: 0
     talkingAnimations: []
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
@@ -27464,6 +27467,7 @@ MonoBehaviour:
     timeBetweenClips: 0
     talkingAnimations:
     - {fileID: 0}
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0

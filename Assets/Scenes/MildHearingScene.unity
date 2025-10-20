@@ -841,7 +841,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 434611f013b9f427bad2e4410a019024, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2144,7 +2144,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: dfeb7e05b3dcf4ad7b05f5e09934b75e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: -2.96
   Loop: 0
@@ -2409,6 +2409,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7314abbb4816e48ffa6f797cff8d9c31, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1377902820}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7314abbb4816e48ffa6f797cff8d9c31, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1377902821}
   m_SourcePrefab: {fileID: 100100000, guid: 7314abbb4816e48ffa6f797cff8d9c31, type: 3}
 --- !u!1 &122154929
 GameObject:
@@ -4205,7 +4208,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 5be22636dda924ba9bf786380e616e48, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -23277,118 +23280,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1030972151, guid: abc00000000009026292332411352372, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1103988931}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000009026292332411352372, type: 3}
 --- !u!4 &1103988929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030972152, guid: abc00000000009026292332411352372, type: 3}
   m_PrefabInstance: {fileID: 1103988928}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1103988930 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1030972151, guid: abc00000000009026292332411352372, type: 3}
-  m_PrefabInstance: {fileID: 1103988928}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1103988931
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103988930}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: b5e2a5134b4cc4245a9faa92a0ef2727, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 3
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1110550145
 GameObject:
   m_ObjectHideFlags: 0
@@ -27490,10 +27388,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - eventName: MildPopUp
-    speakerSources:
-    - {fileID: 0}
+    speakerSources: []
     timeBetweenClips: 0
     talkingAnimations: []
+    talkingAnimations2: []
     uiToShow: {fileID: 122154929}
     uiType: 1
     uiDuration: 5
@@ -27516,9 +27414,10 @@ MonoBehaviour:
     - {fileID: 2141073808}
     timeBetweenClips: 0
     talkingAnimations:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 1917753207}
+    - {fileID: 1377902820}
+    - {fileID: 1938548510}
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
@@ -27538,6 +27437,7 @@ MonoBehaviour:
     speakerSources: []
     timeBetweenClips: 0
     talkingAnimations: []
+    talkingAnimations2: []
     uiToShow: {fileID: 1841352456}
     uiType: 2
     uiDuration: 0
@@ -27553,11 +27453,17 @@ MonoBehaviour:
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
-  - eventName: Waiter leaves
+  - eventName: waiter leaves + ConversationMild2
     speakerSources:
-    - {fileID: 0}
+    - {fileID: 909588479}
+    - {fileID: 1548536927}
+    - {fileID: 952565526}
     timeBetweenClips: 0
     talkingAnimations: []
+    talkingAnimations2:
+    - {fileID: 1917753208}
+    - {fileID: 1377902821}
+    - {fileID: 1938548511}
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
@@ -27573,35 +27479,11 @@ MonoBehaviour:
     waiterToStart: {fileID: 690659163}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
-  - eventName: ConversationMild2
-    speakerSources:
-    - {fileID: 909588479}
-    - {fileID: 1548536927}
-    - {fileID: 952565526}
-    timeBetweenClips: 0
-    talkingAnimations:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    uiToShow: {fileID: 0}
-    uiType: 0
-    uiDuration: 0
-    nextEventIfChoice0: 0
-    nextEventIfChoice1: 0
-    grabbableObject: {fileID: 0}
-    grabbablePrefab: {fileID: 0}
-    spawnPoint: {fileID: 0}
-    parentToSpawnPoint: 0
-    eventDuration: 0
-    keepInteractableAfterEvent: 0
-    showGrabbableAtEventStart: 0
-    waiterToStart: {fileID: 0}
-    reverseWaiterMovement: 0
-    waitTimeAfter: 0
   - eventName: waiters returns
     speakerSources: []
     timeBetweenClips: 0
     talkingAnimations: []
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
@@ -27618,11 +27500,11 @@ MonoBehaviour:
     reverseWaiterMovement: 1
     waitTimeAfter: 0
   - eventName: Waiter Speaks
-    speakerSources:
-    - {fileID: 2073321498}
+    speakerSources: []
     timeBetweenClips: 0
     talkingAnimations:
     - {fileID: 0}
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
@@ -27642,6 +27524,7 @@ MonoBehaviour:
     speakerSources: []
     timeBetweenClips: 0
     talkingAnimations: []
+    talkingAnimations2: []
     uiToShow: {fileID: 531379422}
     uiType: 2
     uiDuration: 0
@@ -27658,11 +27541,11 @@ MonoBehaviour:
     reverseWaiterMovement: 0
     waitTimeAfter: 0
   - eventName: WaiterSpeaks2
-    speakerSources:
-    - {fileID: 1849230689}
+    speakerSources: []
     timeBetweenClips: 0
     talkingAnimations:
     - {fileID: 0}
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
@@ -28598,27 +28481,41 @@ MonoBehaviour:
   sequence:
   - time: 0
     isTalking: 1
-  - time: 9
+  - time: 4
+    isTalking: 0
+  - time: 6
+    isTalking: 1
+  - time: 13
+    isTalking: 0
+  - time: 17
+    isTalking: 1
+  - time: 23
+    isTalking: 0
+  - time: 35
+    isTalking: 1
+  - time: 38
+    isTalking: 0
+--- !u!114 &1377902821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036637374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8a1d3e58fa12244b8d2aa1739c735b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1377902819}
+  sequence:
+  - time: 0
+    isTalking: 1
+  - time: 6
     isTalking: 0
   - time: 18
     isTalking: 1
-  - time: 21
-    isTalking: 0
-  - time: 29
-    isTalking: 1
-  - time: 36
-    isTalking: 0
-  - time: 40
-    isTalking: 1
-  - time: 45
-    isTalking: 0
-  - time: 49
-    isTalking: 1
-  - time: 55
-    isTalking: 0
-  - time: 60
-    isTalking: 1
-  - time: 66
+  - time: 20
     isTalking: 0
 --- !u!1 &1382525112
 GameObject:
@@ -40494,6 +40391,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67a37983bd4f04cd4a6aef2031add57c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1917753207}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67a37983bd4f04cd4a6aef2031add57c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917753208}
   m_SourcePrefab: {fileID: 100100000, guid: 67a37983bd4f04cd4a6aef2031add57c, type: 3}
 --- !u!1 &1917753204 stripped
 GameObject:
@@ -40541,21 +40441,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1917753206}
   sequence:
-  - time: 8
+  - time: 12
     isTalking: 1
-  - time: 13
+  - time: 15
     isTalking: 0
-  - time: 22
+  - time: 23
     isTalking: 1
-  - time: 29
+  - time: 32
     isTalking: 0
-  - time: 45
+  - time: 37
     isTalking: 1
-  - time: 48
+  - time: 40
     isTalking: 0
-  - time: 55
+--- !u!114 &1917753208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917753204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8a1d3e58fa12244b8d2aa1739c735b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1917753206}
+  sequence:
+  - time: 6
     isTalking: 1
-  - time: 59
+  - time: 10
     isTalking: 0
 --- !u!1 &1918693274
 GameObject:
@@ -41206,6 +41120,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ed0856b272be443a8be550ac1e004094, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1938548510}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ed0856b272be443a8be550ac1e004094, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1938548511}
   m_SourcePrefab: {fileID: 100100000, guid: ed0856b272be443a8be550ac1e004094, type: 3}
 --- !u!4 &1938548508 stripped
 Transform:
@@ -41231,29 +41148,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1938548509}
   sequence:
-  - time: 12
+  - time: 3
     isTalking: 1
-  - time: 18
+  - time: 6
     isTalking: 0
-  - time: 21
+  - time: 14
     isTalking: 1
-  - time: 23
+  - time: 17
     isTalking: 0
-  - time: 37
+  - time: 31
     isTalking: 1
-  - time: 40
+  - time: 35
     isTalking: 0
-  - time: 46
+--- !u!114 &1938548511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849071061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8a1d3e58fa12244b8d2aa1739c735b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1938548509}
+  sequence:
+  - time: 10
     isTalking: 1
-  - time: 49
-    isTalking: 0
-  - time: 59
-    isTalking: 1
-  - time: 61
-    isTalking: 0
-  - time: 67
-    isTalking: 1
-  - time: 69
+  - time: 13
     isTalking: 0
 --- !u!1001 &1939256618
 PrefabInstance:
