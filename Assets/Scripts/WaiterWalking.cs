@@ -6,9 +6,10 @@ public class WaiterWalking : MonoBehaviour
     public float stopDistance = 0.25f;
     public float turnSpeed = 8f;
 
-    Animator anim;
-    bool walking;
-    int currentTargetIndex = 0;
+    private Animator anim;
+    private bool walking;
+    private int currentTargetIndex = 0;
+    private int direction = 1; // 1 = forward, -1 = backward
 
     void Awake()
     {
@@ -37,8 +38,9 @@ public class WaiterWalking : MonoBehaviour
         }
         else
         {
-            currentTargetIndex++;
-            if (currentTargetIndex >= targets.Length)
+            currentTargetIndex += direction;
+
+            if (currentTargetIndex >= targets.Length || currentTargetIndex < 0)
             {
                 walking = false;
                 anim.SetBool("IsWalking", false);
@@ -57,14 +59,20 @@ public class WaiterWalking : MonoBehaviour
         transform.rotation *= anim.deltaRotation;
     }
 
-    // Call this from EventManager when the event triggers
-    public void StartWalking()
+    /// <summary>
+    /// Start walking along the targets. Reverse = true will walk backward.
+    /// </summary>
+    public void StartWalking(bool reverse = false)
     {
         if (targets.Length == 0) return;
+
         walking = true;
         anim.SetBool("IsWalking", true);
-        currentTargetIndex = 0; // start from first target
+
+        direction = reverse ? -1 : 1;
+        currentTargetIndex = reverse ? targets.Length - 1 : 0;
     }
+
     public bool IsWalking()
     {
         return walking;

@@ -28,29 +28,18 @@ public class StoryEvent
     public int nextEventIfChoice1 = -1;
 
     [Header("Grabbable (scene object OR prefab)")]
-    [Tooltip("OPTION 1: Drag a SCENE object here if it already exists in the scene.")]
-    public GameObject grabbableObject;            // existing scene instance (optional)
-
-    [Tooltip("OPTION 2: Drag a PREFAB here to have it spawned at runtime.")]
-    public GameObject grabbablePrefab;            // prefab reference (optional)
-
-    [Tooltip("Where to spawn the prefab (position/rotation will be copied). Leave empty to use EventManager transform.")]
+    public GameObject grabbableObject;
+    public GameObject grabbablePrefab;
     public Transform spawnPoint;
-
-    [Tooltip("Make spawned object a child of the Spawn Point (keeps local offset 0/0/0).")]
     public bool parentToSpawnPoint = false;
-
-    [Tooltip("Time allowed for interaction before moving to next event (seconds). 0 = wait until grabbed")]
     public float eventDuration = 0f;
-
-    [Tooltip("If true, the grabbable remains interactable after the event ends")]
     public bool keepInteractableAfterEvent = false;
-
-    [Tooltip("If true, spawn/enable the grabbable at the START of the event (so it's visible during the UI).")]
-    public bool showGrabbableAtEventStart = false; // NEW
+    public bool showGrabbableAtEventStart = false;
 
     [Header("Special Actions")]
     public WaiterWalking waiterToStart;
+    [Tooltip("If true, the waiter walks backward along the targets (return). If false, walks forward (leaving).")]
+    public bool reverseWaiterMovement = false;
 
     [Header("Timing")]
     public float waitTimeAfter = 1f;
@@ -62,20 +51,16 @@ public class EventManager : MonoBehaviour
     public StoryEvent[] events;
     private int currentIndex = 0;
 
-    // Caches for interactables on each object (works for Grab/Simple/Socket/etc., incl. children)
     private readonly Dictionary<GameObject, List<XRBaseInteractable>> _interactablesByObject = new();
     private readonly Dictionary<XRBaseInteractable, InteractionLayerMask> _originalLayers = new();
-
-    // Track runtime-spawned instances so we can cache/lock them too
     private readonly HashSet<GameObject> _spawnedAtRuntime = new();
 
     void Start()
     {
-        // Build caches and hard-lock any SCENE INSTANCES set in the events
         foreach (var e in events)
         {
-            if (e.grabbableObject == null) continue;
-            CacheAndHardLock(e.grabbableObject, alsoHide: false);
+            if (e.grabbableObject != null)
+                CacheAndHardLock(e.grabbableObject, alsoHide: false);
         }
 
         StartCoroutine(PlayStory());
@@ -94,40 +79,40 @@ public class EventManager : MonoBehaviour
     IEnumerator RunEvent(StoryEvent e)
     {
         Debug.Log("▶ Running event: " + e.eventName);
-
         yield return null;
 
         // ---- Talking Animations ----
         if (e.talkingAnimations != null && e.talkingAnimations.Count > 0)
         {
             foreach (var anim in e.talkingAnimations)
-                if (anim != null) anim.PlaySequence();
+                anim?.PlaySequence();
         }
 
-        // ======= NEW: (optional) show grabbable at START so it's visible during UI =======
+        // ---- Early grabbable activation ----
         GameObject earlyGo = null;
         bool grabbableAlreadyActivated = false;
         if (e.showGrabbableAtEventStart && (e.grabbableObject != null || e.grabbablePrefab != null))
         {
-            earlyGo = PrepareAndEnableGrabbable(e);     // spawn or fetch, set active, enable interactables
+            earlyGo = PrepareAndEnableGrabbable(e);
             grabbableAlreadyActivated = (earlyGo != null);
         }
-        // ================================================================================
 
         // ---- Audio ----
         if (e.speakerSources != null && e.speakerSources.Count > 0)
         {
-            foreach (AudioSource source in e.speakerSources)
-                if (source != null && source.clip != null) source.Play();
+            foreach (var source in e.speakerSources)
+                if (source != null && source.clip != null)
+                    source.Play();
 
             float maxLength = 0f;
-            foreach (AudioSource source in e.speakerSources)
-                if (source != null && source.clip != null) maxLength = Mathf.Max(maxLength, source.clip.length);
+            foreach (var source in e.speakerSources)
+                if (source != null && source.clip != null)
+                    maxLength = Mathf.Max(maxLength, source.clip.length);
 
             yield return new WaitForSeconds(maxLength + e.timeBetweenClips);
         }
 
-        // ---- UI Interaction ----
+        // ---- UI ----
         if (e.uiToShow != null)
         {
             e.uiToShow.SetActive(true);
@@ -146,7 +131,6 @@ public class EventManager : MonoBehaviour
                     yield return new WaitUntil(() => choice.buttonPressed);
                     e.uiToShow.SetActive(false);
 
-                    // ---- Branching Logic ----
                     if (choice.chosenIndex == 0 && e.nextEventIfChoice0 >= 0)
                     {
                         currentIndex = e.nextEventIfChoice0 - 1;
@@ -161,58 +145,30 @@ public class EventManager : MonoBehaviour
             }
         }
 
-        // ---- Grabbable Object Interaction ----
-        // If we already activated it early, skip the activation part and only handle waiting/relocking.
+        // ---- Grabbable object handling ----
         if (e.grabbableObject != null || e.grabbablePrefab != null)
         {
-            GameObject go = null;
-
-            if (grabbableAlreadyActivated)
-            {
-                go = earlyGo != null ? earlyGo : e.grabbableObject;
-            }
-            else
-            {
-                // original behavior: activate AFTER the UI
-                go = PrepareAndEnableGrabbable(e);
-            }
+            GameObject go = grabbableAlreadyActivated ? (earlyGo ?? e.grabbableObject) : PrepareAndEnableGrabbable(e);
 
             if (go != null)
             {
-                XRGrabInteractable grabInteractable = go.GetComponent<XRGrabInteractable>();
                 GrabbableEventObject grabObj = go.GetComponent<GrabbableEventObject>();
-                if (grabObj != null) grabObj.ResetGrabState();
+                grabObj?.ResetGrabState();
 
-                if (e.eventDuration > 0f)
+                // Wait until the object is grabbed before continuing
+                if (grabObj != null)
                 {
-                    float timer = 0f;
-                    while ((grabObj == null || !grabObj.HasBeenGrabbed) && timer < e.eventDuration)
-                    {
-                        timer += Time.deltaTime;
-                        yield return null;
-                    }
-
-                    if (!e.keepInteractableAfterEvent)
-                        EnableAndRestore(go, enable: false); // relock
-
-                    if (grabObj != null && grabObj.HasBeenGrabbed)
-                        Debug.Log($"{go.name} was grabbed during the allowed time.");
-                    else
-                        Debug.Log($"{go.name} interaction time expired.");
-                }
-                else if (grabObj != null)
-                {
-                    // Wait until grabbed
+                    Debug.Log($"Waiting for {go.name} to be grabbed...");
                     yield return new WaitUntil(() => grabObj.HasBeenGrabbed);
-                    Debug.Log($"{go.name} was grabbed!");
+                    Debug.Log($"{go.name} has been grabbed!");
 
                     if (!e.keepInteractableAfterEvent)
-                        EnableAndRestore(go, enable: false); // relock after successful grab
+                        EnableAndRestore(go, enable: false);
                 }
                 else
                 {
-                    // No GrabbableEventObject: stays enabled during this event;
-                    // final safety below applies if keepInteractableAfterEvent == false
+                    // If no GrabbableEventObject exists, just enable object and continue
+                    EnableAndRestore(go, enable: true);
                 }
             }
         }
@@ -220,15 +176,15 @@ public class EventManager : MonoBehaviour
         // ---- Waiter Walking ----
         if (e.waiterToStart != null)
         {
-            e.waiterToStart.StartWalking();
+            e.waiterToStart.StartWalking(e.reverseWaiterMovement);
             yield return new WaitUntil(() => !e.waiterToStart.IsWalking());
         }
 
-        // ---- Wait time after ----
+        // ---- Wait after event ----
         if (e.waitTimeAfter > 0)
             yield return new WaitForSeconds(e.waitTimeAfter);
 
-        // Final safety — enforce post-event interactable state
+        // ---- Post-event cleanup ----
         if (events != null && currentIndex < events.Length)
         {
             var cur = events[currentIndex];
@@ -237,14 +193,12 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    // ====================== helpers ======================
+    // ---- Helpers ----
 
-    // Prepare a grabbable for an event: spawn prefab if needed, set active, and enable interactables.
     private GameObject PrepareAndEnableGrabbable(StoryEvent e)
     {
         GameObject go = e.grabbableObject;
 
-        // If no scene object, but a prefab is provided, spawn it
         if (go == null && e.grabbablePrefab != null)
         {
             Vector3 pos = transform.position;
@@ -261,7 +215,7 @@ public class EventManager : MonoBehaviour
                 go.transform.SetParent(e.spawnPoint, worldPositionStays: true);
 
             _spawnedAtRuntime.Add(go);
-            e.grabbableObject = go; // store for later events
+            e.grabbableObject = go;
 
             CacheAndHardLock(go, alsoHide: false);
         }
@@ -269,13 +223,12 @@ public class EventManager : MonoBehaviour
         if (go != null)
         {
             if (!go.activeSelf) go.SetActive(true);
-            EnableAndRestore(go, enable: true); // enable + restore layers
+            EnableAndRestore(go, enable: true);
         }
 
         return go;
     }
 
-    // Build cache for all XRBaseInteractables under 'go' and hard lock them (disable + set layers None).
     private void CacheAndHardLock(GameObject go, bool alsoHide)
     {
         if (go == null) return;
@@ -283,7 +236,7 @@ public class EventManager : MonoBehaviour
         if (!_interactablesByObject.ContainsKey(go))
         {
             var list = new List<XRBaseInteractable>();
-            go.GetComponentsInChildren(true, list); // include inactive
+            go.GetComponentsInChildren(true, list);
             _interactablesByObject[go] = list;
 
             foreach (var xri in list)
@@ -299,7 +252,6 @@ public class EventManager : MonoBehaviour
         if (alsoHide) go.SetActive(false);
     }
 
-    // Enable/disable all XRBaseInteractables under 'go' and restore/clear their interaction layers.
     private void EnableAndRestore(GameObject go, bool enable)
     {
         if (go == null) return;
@@ -318,7 +270,7 @@ public class EventManager : MonoBehaviour
             else
             {
                 xri.enabled = false;
-                xri.interactionLayers = 0; // None
+                xri.interactionLayers = 0;
             }
         }
     }
