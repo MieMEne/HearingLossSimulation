@@ -1879,6 +1879,7 @@ GameObject:
   - component: {fileID: 83455524}
   - component: {fileID: 83455527}
   - component: {fileID: 83455528}
+  - component: {fileID: 83455529}
   m_Layer: 5
   m_Name: Option1
   m_TagString: Untagged
@@ -1976,9 +1977,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 83455528}
-        m_TargetAssemblyTypeName: CloseCanvasButton, Assembly-CSharp
-        m_MethodName: DisableCanvas
+      - m_Target: {fileID: 83455529}
+        m_TargetAssemblyTypeName: VRUIButtonLogger, Assembly-CSharp
+        m_MethodName: LogClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2013,7 +2014,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 193.5, y: 22, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2024,12 +2025,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83455522}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e306c02834ab46198934fe03676ef21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvasToDisable: {fileID: 1412779599}
+--- !u!114 &83455529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83455522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716b86e1012fed8429718e35dcb68157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &85812789
 GameObject:
   m_ObjectHideFlags: 0
@@ -11741,6 +11754,8 @@ GameObject:
   - component: {fileID: 591993276}
   - component: {fileID: 591993275}
   - component: {fileID: 591993278}
+  - component: {fileID: 591993280}
+  - component: {fileID: 591993279}
   m_Layer: 5
   m_Name: Option2
   m_TagString: Untagged
@@ -11838,10 +11853,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1841352458}
-        m_TargetAssemblyTypeName: ChoiceUI, Assembly-CSharp
-        m_MethodName: OnChoiceButtonPressed
-        m_Mode: 3
+      - m_Target: {fileID: 591993279}
+        m_TargetAssemblyTypeName: VRUIButtonLogger, Assembly-CSharp
+        m_MethodName: LogClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11875,10 +11890,34 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 193.5, y: 22, z: 2}
   m_Center: {x: 0.000019383757, y: 0.0000035601984, z: -1}
+--- !u!114 &591993279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591993273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716b86e1012fed8429718e35dcb68157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &591993280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591993273}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716b86e1012fed8429718e35dcb68157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &598071758
 GameObject:
   m_ObjectHideFlags: 0
@@ -29119,6 +29158,8 @@ GameObject:
   - component: {fileID: 1412779603}
   - component: {fileID: 1412779602}
   - component: {fileID: 1412779601}
+  - component: {fileID: 1412779605}
+  - component: {fileID: 1412779604}
   m_Layer: 5
   m_Name: CanvasQuestions
   m_TagString: Untagged
@@ -29211,6 +29252,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1412779604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412779599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473f86adfb8f7da4f8f2567e42ce6a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1412779605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412779599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1 &1416102530
 GameObject:
   m_ObjectHideFlags: 0
