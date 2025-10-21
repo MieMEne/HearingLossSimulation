@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.SceneManagement; // ✅ Added for scene shifting
 
 [System.Serializable]
 public class StoryEvent
@@ -52,6 +53,11 @@ public class EventManager : MonoBehaviour
     public StoryEvent[] events;
     private int currentIndex = 0;
 
+    // ✅ New scene transition options
+    [Header("After Story Finishes")]
+    public bool loadNextScene = false;
+    public string nextSceneName = ""; // Must match a scene in Build Settings
+
     private readonly Dictionary<GameObject, List<XRBaseInteractable>> _interactablesByObject = new();
     private readonly Dictionary<XRBaseInteractable, InteractionLayerMask> _originalLayers = new();
     private readonly HashSet<GameObject> _spawnedAtRuntime = new();
@@ -74,7 +80,15 @@ public class EventManager : MonoBehaviour
             yield return StartCoroutine(RunEvent(events[currentIndex]));
             currentIndex++;
         }
+
         Debug.Log("🎉 Story finished!");
+
+        // ✅ If enabled, load next scene
+        if (loadNextScene && !string.IsNullOrEmpty(nextSceneName))
+        {
+            Debug.Log($"📦 Loading scene: {nextSceneName}");
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 
     IEnumerator RunEvent(StoryEvent e)
@@ -82,21 +96,18 @@ public class EventManager : MonoBehaviour
         Debug.Log("▶ Running event: " + e.eventName);
         yield return null;
 
-        // ---- Talking Animations 1 ----
         if (e.talkingAnimations != null && e.talkingAnimations.Count > 0)
         {
             foreach (var anim in e.talkingAnimations)
                 anim?.PlaySequence();
         }
 
-        // ---- Talking Animations 2 ----
         if (e.talkingAnimations2 != null && e.talkingAnimations2.Count > 0)
         {
             foreach (var anim in e.talkingAnimations2)
                 anim?.PlaySequence();
         }
 
-        // ---- Early grabbable activation ----
         GameObject earlyGo = null;
         bool grabbableAlreadyActivated = false;
         if (e.showGrabbableAtEventStart && (e.grabbableObject != null || e.grabbablePrefab != null))
@@ -105,7 +116,6 @@ public class EventManager : MonoBehaviour
             grabbableAlreadyActivated = (earlyGo != null);
         }
 
-        // ---- Audio ----
         if (e.speakerSources != null && e.speakerSources.Count > 0)
         {
             foreach (var source in e.speakerSources)
@@ -120,7 +130,6 @@ public class EventManager : MonoBehaviour
             yield return new WaitForSeconds(maxLength + e.timeBetweenClips);
         }
 
-        // ---- UI ----
         if (e.uiToShow != null)
         {
             e.uiToShow.SetActive(true);
@@ -153,7 +162,6 @@ public class EventManager : MonoBehaviour
             }
         }
 
-        // ---- Grabbable object handling ----
         if (e.grabbableObject != null || e.grabbablePrefab != null)
         {
             GameObject go = grabbableAlreadyActivated ? (earlyGo ?? e.grabbableObject) : PrepareAndEnableGrabbable(e);
@@ -163,7 +171,6 @@ public class EventManager : MonoBehaviour
                 GrabbableEventObject grabObj = go.GetComponent<GrabbableEventObject>();
                 grabObj?.ResetGrabState();
 
-                // Wait until the object is grabbed before continuing
                 if (grabObj != null)
                 {
                     Debug.Log($"Waiting for {go.name} to be grabbed...");
@@ -180,18 +187,15 @@ public class EventManager : MonoBehaviour
             }
         }
 
-        // ---- Waiter Walking ----
         if (e.waiterToStart != null)
         {
             e.waiterToStart.StartWalking(e.reverseWaiterMovement);
             yield return new WaitUntil(() => !e.waiterToStart.IsWalking());
         }
 
-        // ---- Wait after event ----
         if (e.waitTimeAfter > 0)
             yield return new WaitForSeconds(e.waitTimeAfter);
 
-        // ---- Post-event cleanup ----
         if (events != null && currentIndex < events.Length)
         {
             var cur = events[currentIndex];
@@ -199,8 +203,6 @@ public class EventManager : MonoBehaviour
                 EnableAndRestore(cur.grabbableObject, enable: false);
         }
     }
-
-    // ---- Helpers ----
 
     private GameObject PrepareAndEnableGrabbable(StoryEvent e)
     {

@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/old scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
-    path: Assets/Scenes/MarioScene.unity
+    path: Assets/Scenes/old scenes/MarioScene.unity
     guid: a070bb25e665e4232a942b07452c0802
   - enabled: 1
     path: Assets/Scenes/EventManager.unity
@@ -17,6 +17,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/InteractionScene.unity
     guid: 97a2c648c96bf4dbcac5c691454b5529
+  - enabled: 1
+    path: Assets/Scenes/NormalHearingScene.unity
+    guid: 90fa7788f0899fe44b5b6e0804676fc3
+  - enabled: 1
+    path: Assets/Scenes/MildHearingScene.unity
+    guid: 60ffa2dfe69bf9f4fb22fb22794bf4c8
+  - enabled: 1
+    path: Assets/Scenes/ModerateHearingScene.unity
+    guid: f497331b3b7d031488af376d874e95a9
+  - enabled: 1
+    path: Assets/Scenes/SevereHearingScene.unity
+    guid: 211fd3a313176f9409adaa8075987640
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ddd3f64d7b4dc4149823522c736ed21c, type: 2}
