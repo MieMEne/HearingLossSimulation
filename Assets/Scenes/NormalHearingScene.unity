@@ -27466,7 +27466,7 @@ MonoBehaviour:
     talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
-    uiDuration: 3
+    uiDuration: 0
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}

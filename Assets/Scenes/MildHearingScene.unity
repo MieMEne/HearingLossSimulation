@@ -14122,15 +14122,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 621503900}
-  - {fileID: 1276032090}
-  - {fileID: 347262658}
-  - {fileID: 699992756}
-  - {fileID: 1419018386}
-  - {fileID: 1837193767}
-  - {fileID: 1875330450}
-  - {fileID: 239744585}
   - {fileID: 758468759}
+  - {fileID: 239744585}
+  - {fileID: 1875330450}
+  - {fileID: 1837193767}
+  - {fileID: 1419018386}
+  - {fileID: 699992756}
+  - {fileID: 347262658}
+  - {fileID: 1276032090}
+  - {fileID: 621503900}
   stopDistance: 0.25
   turnSpeed: 8
 --- !u!4 &690659165 stripped
@@ -27626,6 +27626,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
+  - eventName: Waiter leaves
+    speakerSources: []
+    timeBetweenClips: 0
+    talkingAnimations:
+    - {fileID: 0}
+    talkingAnimations2: []
+    uiToShow: {fileID: 0}
+    uiType: 0
+    uiDuration: 0
+    nextEventIfChoice0: 0
+    nextEventIfChoice1: 0
+    grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
+    eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
+    waiterToStart: {fileID: 690659163}
+    reverseWaiterMovement: 1
+    waitTimeAfter: 0
+  - eventName: waiters returns
+    speakerSources: []
+    timeBetweenClips: 0
+    talkingAnimations: []
+    talkingAnimations2: []
+    uiToShow: {fileID: 0}
+    uiType: 0
+    uiDuration: 0
+    nextEventIfChoice0: 0
+    nextEventIfChoice1: 0
+    grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
+    eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
+    waiterToStart: {fileID: 690659163}
+    reverseWaiterMovement: 0
+    waitTimeAfter: 0
   - eventName: MildPopUp
     speakerSources: []
     timeBetweenClips: 0
@@ -27672,27 +27713,7 @@ MonoBehaviour:
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
-  - eventName: Question1 (Burger no burger)
-    speakerSources: []
-    timeBetweenClips: 0
-    talkingAnimations: []
-    talkingAnimations2: []
-    uiToShow: {fileID: 1841352456}
-    uiType: 2
-    uiDuration: 0
-    nextEventIfChoice0: -1
-    nextEventIfChoice1: -1
-    grabbableObject: {fileID: 0}
-    grabbablePrefab: {fileID: 0}
-    spawnPoint: {fileID: 0}
-    parentToSpawnPoint: 0
-    eventDuration: 0
-    keepInteractableAfterEvent: 0
-    showGrabbableAtEventStart: 0
-    waiterToStart: {fileID: 0}
-    reverseWaiterMovement: 0
-    waitTimeAfter: 0
-  - eventName: waiter leaves + ConversationMild2
+  - eventName: ConversationMild2
     speakerSources:
     - {fileID: 909588479}
     - {fileID: 1548536927}
@@ -27715,28 +27736,8 @@ MonoBehaviour:
     eventDuration: 0
     keepInteractableAfterEvent: 0
     showGrabbableAtEventStart: 0
-    waiterToStart: {fileID: 690659163}
-    reverseWaiterMovement: 1
-    waitTimeAfter: 0
-  - eventName: waiters returns
-    speakerSources: []
-    timeBetweenClips: 0
-    talkingAnimations: []
-    talkingAnimations2: []
-    uiToShow: {fileID: 0}
-    uiType: 0
-    uiDuration: 0
-    nextEventIfChoice0: 0
-    nextEventIfChoice1: 0
-    grabbableObject: {fileID: 0}
-    grabbablePrefab: {fileID: 0}
-    spawnPoint: {fileID: 0}
-    parentToSpawnPoint: 0
-    eventDuration: 0
-    keepInteractableAfterEvent: 0
-    showGrabbableAtEventStart: 0
-    waiterToStart: {fileID: 690659163}
-    reverseWaiterMovement: 1
+    waiterToStart: {fileID: 0}
+    reverseWaiterMovement: 0
     waitTimeAfter: 0
   - eventName: Waiter Speaks
     speakerSources: []
@@ -27769,6 +27770,26 @@ MonoBehaviour:
     uiDuration: 0
     nextEventIfChoice0: 0
     nextEventIfChoice1: 0
+    grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
+    eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
+    waiterToStart: {fileID: 0}
+    reverseWaiterMovement: 0
+    waitTimeAfter: 0
+  - eventName: Question1 (Burger no burger)
+    speakerSources: []
+    timeBetweenClips: 0
+    talkingAnimations: []
+    talkingAnimations2: []
+    uiToShow: {fileID: 1841352456}
+    uiType: 2
+    uiDuration: 0
+    nextEventIfChoice0: -1
+    nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
     grabbablePrefab: {fileID: 0}
     spawnPoint: {fileID: 0}
@@ -28721,21 +28742,21 @@ MonoBehaviour:
   animator: {fileID: 1377902819}
   sequence:
   - time: 0
-    isTalking: 1
+    animation: 0
   - time: 4
-    isTalking: 0
+    animation: 0
   - time: 6
-    isTalking: 1
+    animation: 0
   - time: 13
-    isTalking: 0
+    animation: 0
   - time: 17
-    isTalking: 1
+    animation: 0
   - time: 23
-    isTalking: 0
+    animation: 0
   - time: 35
-    isTalking: 1
+    animation: 0
   - time: 38
-    isTalking: 0
+    animation: 0
 --- !u!114 &1377902821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40742,17 +40763,17 @@ MonoBehaviour:
   animator: {fileID: 1917753206}
   sequence:
   - time: 12
-    isTalking: 1
+    animation: 0
   - time: 15
-    isTalking: 0
+    animation: 0
   - time: 23
-    isTalking: 1
+    animation: 0
   - time: 32
-    isTalking: 0
+    animation: 0
   - time: 37
-    isTalking: 1
+    animation: 0
   - time: 40
-    isTalking: 0
+    animation: 0
 --- !u!114 &1917753208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41449,17 +41470,17 @@ MonoBehaviour:
   animator: {fileID: 1938548509}
   sequence:
   - time: 3
-    isTalking: 1
+    animation: 0
   - time: 6
-    isTalking: 0
+    animation: 0
   - time: 14
-    isTalking: 1
+    animation: 0
   - time: 17
-    isTalking: 0
+    animation: 0
   - time: 31
-    isTalking: 1
+    animation: 0
   - time: 35
-    isTalking: 0
+    animation: 0
 --- !u!114 &1938548511
 MonoBehaviour:
   m_ObjectHideFlags: 0
