@@ -5,18 +5,32 @@ public class TalkingAnimations : MonoBehaviour
 {
     public Animator animator;
 
+    // ✅ Step 1: Enum for all animations you want available in dropdown
+    public enum AnimationType
+    {
+        Idle,
+        Idle2,
+        Talk1,
+        Talk2,
+        Talk3,
+        Talk4,
+        Talk5,
+        Cheer,
+        LookAtCharacter,
+        Laugh,
+        // ✅ Add more as needed
+    }
+
     [System.Serializable]
     public struct AnimationStep
     {
-        public float time;       // seconds relative to event start
-        public bool isTalking;   // whether to switch to talking
+        public float time;               // When to play this animation
+        public AnimationType animation;  // Dropdown appears here!
     }
 
     public AnimationStep[] sequence;
-
     private Coroutine sequenceCoroutine;
 
-    // Call this from EventManager to start the sequence
     public void PlaySequence()
     {
         if (sequenceCoroutine != null)
@@ -36,11 +50,17 @@ public class TalkingAnimations : MonoBehaviour
 
             if (timer >= sequence[currentIndex].time)
             {
-                animator.SetBool("IsTalking", sequence[currentIndex].isTalking);
+                PlayAnimation(sequence[currentIndex].animation);
                 currentIndex++;
             }
 
             yield return null;
         }
+    }
+
+    private void PlayAnimation(AnimationType type)
+    {
+        // ✅ CrossFade forces the animator to go to the named state smoothly
+        animator.CrossFade(type.ToString(), 0.1f);
     }
 }
