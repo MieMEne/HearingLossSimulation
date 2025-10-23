@@ -2427,7 +2427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7314abbb4816e48ffa6f797cff8d9c31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.382
+      value: -0.297
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7314abbb4816e48ffa6f797cff8d9c31, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2435,7 +2435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7314abbb4816e48ffa6f797cff8d9c31, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.613
+      value: -0.759
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7314abbb4816e48ffa6f797cff8d9c31, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10477,8 +10477,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1001 &532793105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13362,7 +13365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030972133, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.149
+      value: -0.129
       objectReference: {fileID: 0}
     - target: {fileID: 1030972133, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13370,7 +13373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030972133, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.539
+      value: 3.592
       objectReference: {fileID: 0}
     - target: {fileID: 1030972133, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28407,14 +28410,12 @@ MonoBehaviour:
     waitTimeAfter: 0
   - eventName: Moderateconversation1
     speakerSources:
-    - {fileID: 423457820}
     - {fileID: 649105314}
     - {fileID: 2141073808}
     timeBetweenClips: 0
     talkingAnimations:
-    - {fileID: 1917753207}
+    - {fileID: 1938548510}
     - {fileID: 1377902820}
-    - {fileID: 0}
     talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
@@ -28445,7 +28446,7 @@ MonoBehaviour:
     grabbablePrefab: {fileID: 0}
     spawnPoint: {fileID: 0}
     parentToSpawnPoint: 0
-    eventDuration: 0
+    eventDuration: 15
     keepInteractableAfterEvent: 0
     showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
@@ -28455,11 +28456,13 @@ MonoBehaviour:
     speakerSources:
     - {fileID: 2026932841}
     - {fileID: 1350443091}
+    - {fileID: 423457820}
     timeBetweenClips: 0
-    talkingAnimations: []
+    talkingAnimations:
+    - {fileID: 1917753207}
     talkingAnimations2:
+    - {fileID: 1938548511}
     - {fileID: 1377902821}
-    - {fileID: 0}
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
@@ -28489,7 +28492,7 @@ MonoBehaviour:
     grabbablePrefab: {fileID: 0}
     spawnPoint: {fileID: 0}
     parentToSpawnPoint: 0
-    eventDuration: 0
+    eventDuration: 15
     keepInteractableAfterEvent: 0
     showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
@@ -29545,9 +29548,9 @@ MonoBehaviour:
   animator: {fileID: 1377902819}
   sequence:
   - time: 0
-    isTalking: 1
-  - time: 4
-    isTalking: 0
+    animation: 3
+  - time: 3
+    animation: 0
 --- !u!114 &1377902821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29562,26 +29565,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1377902819}
   sequence:
-  - time: 4
-    isTalking: 1
+  - time: 5
+    animation: 2
   - time: 8
-    isTalking: 0
-  - time: 10
-    isTalking: 1
+    animation: 1
+  - time: 16
+    animation: 3
   - time: 18
-    isTalking: 0
-  - time: 21
-    isTalking: 1
-  - time: 23
-    isTalking: 0
+    animation: 1
+  - time: 20
+    animation: 6
+  - time: 22
+    animation: 1
   - time: 27
-    isTalking: 1
+    animation: 4
   - time: 29
-    isTalking: 0
+    animation: 0
   - time: 34
-    isTalking: 1
-  - time: 34
-    isTalking: 1
+    animation: 4
+  - time: 38
+    animation: 0
+  - time: 40
+    animation: 7
 --- !u!1 &1382525112
 GameObject:
   m_ObjectHideFlags: 0
@@ -31990,7 +31995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030972133, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.28418413
+      value: 0.24485733
       objectReference: {fileID: 0}
     - target: {fileID: 1030972133, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_LocalRotation.x
@@ -31998,7 +32003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030972133, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.95876974
+      value: -0.9695592
       objectReference: {fileID: 0}
     - target: {fileID: 1030972133, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_LocalRotation.z
@@ -32006,7 +32011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030972133, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 213.02
+      value: 208.347
       objectReference: {fileID: 0}
     - target: {fileID: 1030972135, guid: abc00000000012668423437282172797, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -33866,8 +33871,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1001 &1535342821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39586,8 +39594,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!114 &1841352459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39604,6 +39615,7 @@ MonoBehaviour:
   option2Button: {fileID: 591993276}
   option1ResultObject: {fileID: 1308778942}
   option2ResultObject: {fileID: 23172306}
+  choiceUI: {fileID: 0}
 --- !u!1 &1849071061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed0856b272be443a8be550ac1e004094, type: 3}
@@ -41300,29 +41312,27 @@ MonoBehaviour:
   animator: {fileID: 1917753206}
   sequence:
   - time: 0
-    isTalking: 1
+    animation: 3
   - time: 3
-    isTalking: 0
+    animation: 1
+  - time: 14
+    animation: 5
   - time: 15
-    isTalking: 1
-  - time: 16
-    isTalking: 0
+    animation: 1
   - time: 18
-    isTalking: 1
+    animation: 6
   - time: 20
-    isTalking: 0
-  - time: 22
-    isTalking: 1
+    animation: 0
+  - time: 23
+    animation: 2
   - time: 26
-    isTalking: 0
+    animation: 1
   - time: 29
-    isTalking: 1
+    animation: 3
   - time: 33
-    isTalking: 0
+    animation: 1
   - time: 38
-    isTalking: 1
-  - time: 40
-    isTalking: 0
+    animation: 7
 --- !u!1 &1918693274
 GameObject:
   m_ObjectHideFlags: 0
@@ -41999,7 +42009,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1938548509}
-  sequence: []
+  sequence:
+  - time: 4
+    animation: 2
+  - time: 6
+    animation: 0
 --- !u!114 &1938548511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42013,7 +42027,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1938548509}
-  sequence: []
+  sequence:
+  - time: 2
+    animation: 3
+  - time: 4
+    animation: 1
+  - time: 8
+    animation: 4
+  - time: 10
+    animation: 0
+  - time: 16
+    animation: 6
+  - time: 18
+    animation: 1
+  - time: 25
+    animation: 4
+  - time: 27
+    animation: 1
+  - time: 32
+    animation: 2
+  - time: 34
+    animation: 0
+  - time: 40
+    animation: 7
 --- !u!1001 &1939256618
 PrefabInstance:
   m_ObjectHideFlags: 0

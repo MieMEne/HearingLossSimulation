@@ -10270,9 +10270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
-  saveKey: ChosenFoodIndex
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1001 &532793105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28463,11 +28465,11 @@ MonoBehaviour:
   sequence:
   - time: 0
     animation: 3
-  - time: 9
+  - time: 8
     animation: 1
-  - time: 18
+  - time: 17
     animation: 2
-  - time: 21
+  - time: 20
     animation: 1
   - time: 29
     animation: 6
@@ -28475,13 +28477,13 @@ MonoBehaviour:
     animation: 1
   - time: 40
     animation: 2
-  - time: 45
+  - time: 44
     animation: 1
   - time: 48
     animation: 2
-  - time: 55
+  - time: 54
     animation: 0
-  - time: 58
+  - time: 61
     animation: 4
   - time: 66
     animation: 0
@@ -32769,9 +32771,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
-  saveKey: ChosenFoodIndex
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1001 &1535342821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38438,9 +38442,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
-  saveKey: ChosenFoodIndex
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!114 &1841352459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38457,6 +38463,7 @@ MonoBehaviour:
   option2Button: {fileID: 591993276}
   option1ResultObject: {fileID: 1308778942}
   option2ResultObject: {fileID: 23172306}
+  choiceUI: {fileID: 0}
 --- !u!1 &1849071061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed0856b272be443a8be550ac1e004094, type: 3}
@@ -40154,19 +40161,19 @@ MonoBehaviour:
   sequence:
   - time: 8
     animation: 2
-  - time: 11
+  - time: 12
     animation: 0
   - time: 22
     animation: 2
-  - time: 29
+  - time: 28
     animation: 0
   - time: 45
     animation: 4
-  - time: 48
+  - time: 47
     animation: 0
-  - time: 55
+  - time: 54
     animation: 3
-  - time: 59
+  - time: 58
     animation: 0
 --- !u!1 &1918693274
 GameObject:
@@ -40847,21 +40854,21 @@ MonoBehaviour:
     animation: 2
   - time: 23
     animation: 1
-  - time: 37
+  - time: 36
     animation: 4
   - time: 40
     animation: 0
-  - time: 46
+  - time: 47
     animation: 6
   - time: 49
     animation: 1
   - time: 59
     animation: 3
-  - time: 61
+  - time: 60
     animation: 0
   - time: 67
     animation: 5
-  - time: 69
+  - time: 68
     animation: 0
 --- !u!1001 &1939256618
 PrefabInstance:
