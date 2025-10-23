@@ -27653,11 +27653,13 @@ MonoBehaviour:
   - eventName: MildPopUp
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 8300000, guid: 46cb180b635a34e42afd4d366c2ec39a, type: 3}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 122154929}
     uiType: 1
-    uiDuration: 5
+    uiDuration: 7
     nextEventIfChoice0: 0
     nextEventIfChoice1: 0
     grabbableObject: {fileID: 0}
@@ -27676,6 +27678,8 @@ MonoBehaviour:
     - {fileID: 649105314}
     - {fileID: 2141073808}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 1917753207}
     - {fileID: 1377902820}
@@ -27699,6 +27703,8 @@ MonoBehaviour:
   - eventName: Question1 (Burger no burger)
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 1841352456}
@@ -27719,6 +27725,8 @@ MonoBehaviour:
   - eventName: Waiter leaves
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 0}
     talkingAnimations2: []
@@ -27743,6 +27751,8 @@ MonoBehaviour:
     - {fileID: 1548536927}
     - {fileID: 952565526}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2:
     - {fileID: 1917753208}
@@ -27766,6 +27776,8 @@ MonoBehaviour:
   - eventName: waiters returns
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 0}
@@ -27786,6 +27798,8 @@ MonoBehaviour:
   - eventName: Waiter Speaks
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 0}
     talkingAnimations2: []
@@ -27807,6 +27821,8 @@ MonoBehaviour:
   - eventName: Question2 (pepsi no pepsi)
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 531379422}
@@ -27827,6 +27843,8 @@ MonoBehaviour:
   - eventName: WaiterSpeaks2
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 0}
     talkingAnimations2: []

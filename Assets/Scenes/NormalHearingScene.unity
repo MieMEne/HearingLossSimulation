@@ -27455,12 +27455,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
+  - eventName: Narrator
+    speakerSources: []
+    timeBetweenClips: 0
+    narratorClip: {fileID: 8300000, guid: dbda4f23280fa4195ba02e4c8c1a901c, type: 3}
+    narratorVolume: 1
+    talkingAnimations:
+    - {fileID: 0}
+    talkingAnimations2: []
+    uiToShow: {fileID: 0}
+    uiType: 0
+    uiDuration: 0
+    nextEventIfChoice0: -1
+    nextEventIfChoice1: -1
+    grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
+    eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
+    waiterToStart: {fileID: 0}
+    reverseWaiterMovement: 0
+    waitTimeAfter: 0
   - eventName: Audio1
     speakerSources:
     - {fileID: 423457820}
     - {fileID: 649105314}
     - {fileID: 2141073808}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 1917753207}
     - {fileID: 1377902820}
@@ -27484,6 +27509,8 @@ MonoBehaviour:
   - eventName: Interaction with menu
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 0}
@@ -27504,6 +27531,8 @@ MonoBehaviour:
   - eventName: Waiter comes
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 0}
@@ -27525,6 +27554,8 @@ MonoBehaviour:
     speakerSources:
     - {fileID: 2073321498}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 0}
     talkingAnimations2: []

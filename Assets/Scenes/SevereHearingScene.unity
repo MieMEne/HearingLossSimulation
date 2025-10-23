@@ -28324,11 +28324,13 @@ MonoBehaviour:
   - eventName: SeverPopUp
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 8300000, guid: 82a119acff8c942d98498b27d39c7312, type: 3}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 1110550145}
     uiType: 1
-    uiDuration: 5
+    uiDuration: 6
     nextEventIfChoice0: 0
     nextEventIfChoice1: 0
     grabbableObject: {fileID: 0}
@@ -28347,6 +28349,8 @@ MonoBehaviour:
     - {fileID: 649105314}
     - {fileID: 2141073808}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 1917753207}
     - {fileID: 1938548510}
@@ -28370,6 +28374,8 @@ MonoBehaviour:
   - eventName: Question 4 (Dessert or dog)
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 1921241839}
@@ -28391,6 +28397,8 @@ MonoBehaviour:
     speakerSources:
     - {fileID: 934440696}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2:
     - {fileID: 1377902821}
@@ -28412,6 +28420,8 @@ MonoBehaviour:
   - eventName: Question 5 (hearing question)
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 1356097383}
@@ -28433,6 +28443,8 @@ MonoBehaviour:
     speakerSources:
     - {fileID: 2071660087}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2:
     - {fileID: 1938548511}
@@ -41202,7 +41214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1917753206}
   sequence:
-  - time: 11
+  - time: 12
     animation: 9
   - time: 15
     animation: 0

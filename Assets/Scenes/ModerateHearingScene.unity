@@ -28391,11 +28391,13 @@ MonoBehaviour:
   - eventName: Moderate Popup
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 8300000, guid: b9bebba6697314029bafc22382b8fdd2, type: 3}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 132940524}
     uiType: 1
-    uiDuration: 5
+    uiDuration: 6
     nextEventIfChoice0: 0
     nextEventIfChoice1: 0
     grabbableObject: {fileID: 0}
@@ -28413,6 +28415,8 @@ MonoBehaviour:
     - {fileID: 649105314}
     - {fileID: 2141073808}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 1938548510}
     - {fileID: 1377902820}
@@ -28435,6 +28439,8 @@ MonoBehaviour:
   - eventName: 'Pour Water Interaction '
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 0}
@@ -28451,13 +28457,15 @@ MonoBehaviour:
     showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
-    waitTimeAfter: 0
+    waitTimeAfter: 15
   - eventName: ModerateConvo2
     speakerSources:
     - {fileID: 2026932841}
     - {fileID: 1350443091}
     - {fileID: 423457820}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 1917753207}
     talkingAnimations2:
@@ -28481,6 +28489,8 @@ MonoBehaviour:
   - eventName: Interaction with glass
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 0}

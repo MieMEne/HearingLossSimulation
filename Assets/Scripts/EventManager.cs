@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using UnityEngine.SceneManagement; // ✅ Added for scene shifting
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class StoryEvent
@@ -11,9 +11,13 @@ public class StoryEvent
     [Header("Event Info")]
     public string eventName;
 
-    [Header("Audio")]
+    [Header("Audio (In-Scene Speakers)")]
     public List<AudioSource> speakerSources = new List<AudioSource>();
     public float timeBetweenClips = 0.5f;
+
+    [Header("Optional Narrator Line (Plays with Timed UI)")]
+    public AudioClip narratorClip;
+    public float narratorVolume = 1f;
 
     [Header("Animations")]
     public List<TalkingAnimations> talkingAnimations = new List<TalkingAnimations>();
@@ -53,10 +57,9 @@ public class EventManager : MonoBehaviour
     public StoryEvent[] events;
     private int currentIndex = 0;
 
-    // ✅ New scene transition options
     [Header("After Story Finishes")]
     public bool loadNextScene = false;
-    public string nextSceneName = ""; // Must match a scene in Build Settings
+    public string nextSceneName = "";
 
     private readonly Dictionary<GameObject, List<XRBaseInteractable>> _interactablesByObject = new();
     private readonly Dictionary<XRBaseInteractable, InteractionLayerMask> _originalLayers = new();
@@ -83,12 +86,8 @@ public class EventManager : MonoBehaviour
 
         Debug.Log("🎉 Story finished!");
 
-        // ✅ If enabled, load next scene
         if (loadNextScene && !string.IsNullOrEmpty(nextSceneName))
-        {
-            Debug.Log($"📦 Loading scene: {nextSceneName}");
             SceneManager.LoadScene(nextSceneName);
-        }
     }
 
     IEnumerator RunEvent(StoryEvent e)
@@ -96,18 +95,14 @@ public class EventManager : MonoBehaviour
         Debug.Log("▶ Running event: " + e.eventName);
         yield return null;
 
-        if (e.talkingAnimations != null && e.talkingAnimations.Count > 0)
-        {
-            foreach (var anim in e.talkingAnimations)
-                anim?.PlaySequence();
-        }
+        // Trigger animations
+        if (e.talkingAnimations != null)
+            foreach (var anim in e.talkingAnimations) anim?.PlaySequence();
 
-        if (e.talkingAnimations2 != null && e.talkingAnimations2.Count > 0)
-        {
-            foreach (var anim in e.talkingAnimations2)
-                anim?.PlaySequence();
-        }
+        if (e.talkingAnimations2 != null)
+            foreach (var anim in e.talkingAnimations2) anim?.PlaySequence();
 
+        // Handle grabbables early if needed
         GameObject earlyGo = null;
         bool grabbableAlreadyActivated = false;
         if (e.showGrabbableAtEventStart && (e.grabbableObject != null || e.grabbablePrefab != null))
@@ -116,6 +111,7 @@ public class EventManager : MonoBehaviour
             grabbableAlreadyActivated = (earlyGo != null);
         }
 
+        // Handle speaker audio sources (blocking as before)
         if (e.speakerSources != null && e.speakerSources.Count > 0)
         {
             foreach (var source in e.speakerSources)
@@ -130,13 +126,28 @@ public class EventManager : MonoBehaviour
             yield return new WaitForSeconds(maxLength + e.timeBetweenClips);
         }
 
+        // Handle UI + narrator
         if (e.uiToShow != null)
         {
             e.uiToShow.SetActive(true);
 
             if (e.uiType == StoryEvent.UIType.Timed)
             {
-                yield return new WaitForSeconds(e.uiDuration);
+                // Start narrator if present
+                float narratorLength = 0f;
+                if (e.narratorClip != null)
+                {
+                    AudioSource narratorSource = new GameObject("TempNarratorSource").AddComponent<AudioSource>();
+                    narratorSource.clip = e.narratorClip;
+                    narratorSource.volume = e.narratorVolume;
+                    narratorSource.Play();
+                    narratorLength = e.narratorClip.length;
+                    Destroy(narratorSource.gameObject, narratorLength + 1f);
+                }
+
+                float waitTime = Mathf.Max(e.uiDuration, narratorLength);
+                yield return new WaitForSeconds(waitTime);
+
                 e.uiToShow.SetActive(false);
             }
             else if (e.uiType == StoryEvent.UIType.Choice)
@@ -161,7 +172,23 @@ public class EventManager : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            // No UI, but narrator clip exists → play narrator alone
+            if (e.narratorClip != null)
+            {
+                AudioSource narratorSource = new GameObject("TempNarratorSource").AddComponent<AudioSource>();
+                narratorSource.clip = e.narratorClip;
+                narratorSource.volume = e.narratorVolume;
+                narratorSource.Play();
+                float narratorLength = e.narratorClip.length;
+                Destroy(narratorSource.gameObject, narratorLength + 1f);
 
+                yield return new WaitForSeconds(narratorLength);
+            }
+        }
+
+        // Handle grabbable objects
         if (e.grabbableObject != null || e.grabbablePrefab != null)
         {
             GameObject go = grabbableAlreadyActivated ? (earlyGo ?? e.grabbableObject) : PrepareAndEnableGrabbable(e);
@@ -187,15 +214,18 @@ public class EventManager : MonoBehaviour
             }
         }
 
+        // Handle waiter walking
         if (e.waiterToStart != null)
         {
             e.waiterToStart.StartWalking(e.reverseWaiterMovement);
             yield return new WaitUntil(() => !e.waiterToStart.IsWalking());
         }
 
+        // Wait after event if specified
         if (e.waitTimeAfter > 0)
             yield return new WaitForSeconds(e.waitTimeAfter);
 
+        // Disable next event grabbable if needed
         if (events != null && currentIndex < events.Length)
         {
             var cur = events[currentIndex];
@@ -238,32 +268,37 @@ public class EventManager : MonoBehaviour
         return go;
     }
 
-    private void CacheAndHardLock(GameObject go, bool alsoHide)
+ private void CacheAndHardLock(GameObject go, bool alsoHide)
+{
+    if (go == null) return;
+
+    // Cache all XRBaseInteractables in the object and children
+    if (!_interactablesByObject.ContainsKey(go))
     {
-        if (go == null) return;
+        var list = new List<XRBaseInteractable>();
+        go.GetComponentsInChildren(true, list);
+        _interactablesByObject[go] = list;
 
-        if (!_interactablesByObject.ContainsKey(go))
+        foreach (var xri in list)
         {
-            var list = new List<XRBaseInteractable>();
-            go.GetComponentsInChildren(true, list);
-            _interactablesByObject[go] = list;
-
-            foreach (var xri in list)
-            {
-                if (xri == null) continue;
-                if (!_originalLayers.ContainsKey(xri))
-                    _originalLayers[xri] = xri.interactionLayers;
-            }
+            if (xri == null) continue;
+            // Save original interaction layers
+            if (!_originalLayers.ContainsKey(xri))
+                _originalLayers[xri] = xri.interactionLayers;
         }
-
-        EnableAndRestore(go, enable: false);
-
-        if (alsoHide) go.SetActive(false);
     }
+
+    // Disable interactables
+    EnableAndRestore(go, enable: false);
+
+    // Optionally hide the object itself
+    if (alsoHide) go.SetActive(false);
+}
 
     private void EnableAndRestore(GameObject go, bool enable)
     {
         if (go == null) return;
+
         if (!_interactablesByObject.TryGetValue(go, out var list) || list == null) return;
 
         foreach (var xri in list)
@@ -272,6 +307,7 @@ public class EventManager : MonoBehaviour
 
             if (enable)
             {
+                // Restore original interaction layers
                 if (_originalLayers.TryGetValue(xri, out var mask))
                     xri.interactionLayers = mask;
                 xri.enabled = true;
@@ -283,4 +319,6 @@ public class EventManager : MonoBehaviour
             }
         }
     }
-}
+     }
+
+
