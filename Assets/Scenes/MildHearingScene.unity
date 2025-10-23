@@ -10081,6 +10081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531379423}
   - component: {fileID: 531379424}
+  - component: {fileID: 531379425}
   m_Layer: 5
   m_Name: SecondQuestion
   m_TagString: Untagged
@@ -10122,9 +10123,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
-  saveKey: ChosenFoodIndex
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
+--- !u!114 &531379425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531379422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f08d9c0f701b049b42b6e557f42a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  option1Button: {fileID: 603741374}
+  option2Button: {fileID: 670846114}
+  option1ResultObject: {fileID: 0}
+  option2ResultObject: {fileID: 0}
+  choiceUI: {fileID: 0}
 --- !u!1001 &532793105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15807,9 +15827,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
-  saveKey: ChosenFoodIndex
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1001 &771210492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17388,7 +17410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a0a26866ef4b14d6aa10ef3f4c39e8c6, type: 3}
       propertyPath: m_Name
-      value: burger (1)
+      value: Soup
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a0a26866ef4b14d6aa10ef3f4c39e8c6, type: 3}
       propertyPath: m_IsActive
@@ -17438,9 +17460,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
-  saveKey: ChosenFoodIndex
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1001 &850526540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33063,9 +33087,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
-  saveKey: ChosenFoodIndex
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1001 &1535342821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38913,9 +38939,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
-  saveKey: ChosenFoodIndex
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!114 &1841352459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38932,6 +38960,7 @@ MonoBehaviour:
   option2Button: {fileID: 591993276}
   option1ResultObject: {fileID: 0}
   option2ResultObject: {fileID: 0}
+  choiceUI: {fileID: 0}
 --- !u!1 &1849071061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed0856b272be443a8be550ac1e004094, type: 3}

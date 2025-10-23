@@ -4,40 +4,42 @@ using UnityEngine.UI;
 public class OptionsFood : MonoBehaviour
 {
     [Header("Assign in Inspector")]
-    public Button option1Button;
-    public Button option2Button;
+    public Button option1Button;           // Burger
+    public Button option2Button;           // Soup
 
-    public GameObject option1ResultObject;
-    public GameObject option2ResultObject;
+    public GameObject option1ResultObject; // optional preview for burger
+    public GameObject option2ResultObject; // optional preview for soup
+
+    [Header("Required: ChoiceUI on this same panel")]
+    public ChoiceUI choiceUI; // Drag the panel here or leave null to auto-find
+
+    void Awake()
+    {
+        if (choiceUI == null)
+            choiceUI = GetComponent<ChoiceUI>();
+        if (choiceUI == null)
+            Debug.LogError("[OptionsFood] Missing ChoiceUI component on the same GameObject.");
+    }
 
     void Start()
     {
-        // Hide both result objects at start
-        option1ResultObject.SetActive(false);
-        option2ResultObject.SetActive(false);
+        if (option1ResultObject) option1ResultObject.SetActive(false);
+        if (option2ResultObject) option2ResultObject.SetActive(false);
 
-        // Add listeners
-        option1Button.onClick.AddListener(OnOption1Pressed);
-        option2Button.onClick.AddListener(OnOption2Pressed);
+        option1Button.onClick.AddListener(() => Pick(0)); // 0 = burger
+        option2Button.onClick.AddListener(() => Pick(1)); // 1 = soup
     }
 
-    void OnOption1Pressed()
+    void Pick(int index)
     {
-        Debug.Log("Option 1 pressed!");
-        option1ResultObject.SetActive(true);
-        option2ResultObject.SetActive(false);
+        if (option1ResultObject) option1ResultObject.SetActive(index == 0);
+        if (option2ResultObject) option2ResultObject.SetActive(index == 1);
 
-        // Hide only THIS question
-        gameObject.SetActive(false);
-    }
+        if (choiceUI != null)
+            choiceUI.OnChoiceButtonPressed(index); // <- tells EventManager & saves
+        else
+            gameObject.SetActive(false); // fallback: at least close the panel
 
-    void OnOption2Pressed()
-    {
-        Debug.Log("Option 2 pressed!");
-        option1ResultObject.SetActive(false);
-        option2ResultObject.SetActive(true);
-
-        // Hide only THIS question
-        gameObject.SetActive(false);
+        Debug.Log($"[OptionsFood] Picked index {index}");
     }
 }
