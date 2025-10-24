@@ -28507,7 +28507,7 @@ MonoBehaviour:
     showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
-    waitTimeAfter: 0
+    waitTimeAfter: 15
   loadNextScene: 1
   nextSceneName: SevereHearingScene
 --- !u!4 &1321488467
