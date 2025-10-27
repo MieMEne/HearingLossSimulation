@@ -29452,7 +29452,7 @@ MonoBehaviour:
   - time: 37
     animation: 0
   - time: 41
-    animation: 3
+    animation: 9
   - time: 45
     animation: 0
 --- !u!114 &1377902821
@@ -41215,7 +41215,7 @@ MonoBehaviour:
   animator: {fileID: 1917753206}
   sequence:
   - time: 12
-    animation: 0
+    animation: 10
   - time: 15
     animation: 0
   - time: 26
@@ -41227,7 +41227,7 @@ MonoBehaviour:
   - time: 41
     animation: 0
   - time: 47
-    animation: 5
+    animation: 8
   - time: 49
     animation: 0
 --- !u!1 &1918693274
