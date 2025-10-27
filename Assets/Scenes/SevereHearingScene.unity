@@ -41215,7 +41215,7 @@ MonoBehaviour:
   animator: {fileID: 1917753206}
   sequence:
   - time: 12
-    animation: 9
+    animation: 0
   - time: 15
     animation: 0
   - time: 26

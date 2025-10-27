@@ -16,7 +16,8 @@ public class TalkingAnimations : MonoBehaviour
         Talk4,
         Talk5,
         Cheer,
-        LookAtCharacter,
+        LookAtLiam,
+        LookAtEmma,
         Laugh,
         // ✅ Add more as needed
     }
