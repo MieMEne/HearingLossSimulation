@@ -5466,7 +5466,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 3b3cf7eb6a5aa408fb32e403076b4d56, type: 3}
+  m_Texture: {fileID: 2800000, guid: 70f013feac3d041a4ba4473cbbb45855, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -11152,11 +11152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1001 &537642896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17231,7 +17234,7 @@ RectTransform:
   m_GameObject: {fileID: 800699336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00017881393}
-  m_LocalScale: {x: 3.3999994, y: 3.3999991, z: 3.4}
+  m_LocalScale: {x: 4.268019, y: 4.268019, z: 4.26802}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1921241840}
@@ -17261,7 +17264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 3b3cf7eb6a5aa408fb32e403076b4d56, type: 3}
+  m_Texture: {fileID: 2800000, guid: 64011bfd0fc164b408fd7eca0f872070, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -21973,7 +21976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 5d57a6e1174514b4e8175a9580c0a1b2, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4ff8d766a50e640e29cbbfa54b22166c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -28706,8 +28709,8 @@ MonoBehaviour:
     uiToShow: {fileID: 1921241839}
     uiType: 2
     uiDuration: 0
-    nextEventIfChoice0: 0
-    nextEventIfChoice1: 0
+    nextEventIfChoice0: -1
+    nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
     grabbablePrefab: {fileID: 0}
     spawnPoint: {fileID: 0}
@@ -28752,8 +28755,8 @@ MonoBehaviour:
     uiToShow: {fileID: 1356097383}
     uiType: 2
     uiDuration: 0
-    nextEventIfChoice0: 0
-    nextEventIfChoice1: 0
+    nextEventIfChoice0: -1
+    nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
     grabbablePrefab: {fileID: 0}
     spawnPoint: {fileID: 0}
@@ -29353,11 +29356,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!224 &1356097385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34186,11 +34192,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1001 &1535342821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39924,11 +39933,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!114 &1841352459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41794,11 +41806,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1 &1922473444
 GameObject:
   m_ObjectHideFlags: 0
@@ -42784,7 +42799,7 @@ RectTransform:
   m_GameObject: {fileID: 1958475060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00011920929}
-  m_LocalScale: {x: 3.3999994, y: 3.3999991, z: 3.4}
+  m_LocalScale: {x: 4.310358, y: 4.3103576, z: 4.310359}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1921241840}
@@ -42814,7 +42829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 5d57a6e1174514b4e8175a9580c0a1b2, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4681f2e63cf3e420a80be9f8ffe4c028, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
