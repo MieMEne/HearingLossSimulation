@@ -180,16 +180,29 @@ public class EventManager : MonoBehaviour
                     yield return new WaitUntil(() => choice.buttonPressed);
                     e.uiToShow.SetActive(false);
 
-                    if (choice.chosenIndex == 0 && e.nextEventIfChoice0 >= 0)
-                    {
-                        currentIndex = e.nextEventIfChoice0 - 1;
-                        yield break;
-                    }
-                    else if (choice.chosenIndex == 1 && e.nextEventIfChoice1 >= 0)
-                    {
-                        currentIndex = e.nextEventIfChoice1 - 1;
-                        yield break;
-                    }
+                  bool validBranch = false;
+
+                if (choice.chosenIndex == 0 && e.nextEventIfChoice0 >= 0)
+                {
+                    currentIndex = e.nextEventIfChoice0 - 1;
+                    validBranch = true;
+                }
+                else if (choice.chosenIndex == 1 && e.nextEventIfChoice1 >= 0)
+                {
+                    currentIndex = e.nextEventIfChoice1 - 1;
+                    validBranch = true;
+                }
+
+                if (validBranch)
+                {
+                    yield break;  // Follow the branch normally
+                }
+                else
+                {
+                    Debug.LogWarning($"[EventManager] No valid branch assigned for choice index {choice.chosenIndex} in event '{e.eventName}'. Continuing to next event normally.");
+                    // Do NOT yield break here, let it continue naturally
+                }
+
                 }
             }
         }
