@@ -10094,8 +10094,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1001 &537642896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27810,58 +27813,96 @@ MonoBehaviour:
     - {fileID: 649105314}
     - {fileID: 2141073808}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 1917753207}
     - {fileID: 1377902820}
     - {fileID: 1938548510}
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 3
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
     eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
+    reverseWaiterMovement: 0
     waitTimeAfter: 1
   - eventName: Interaction with Menu
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
+    talkingAnimations2: []
     uiToShow: {fileID: 122154929}
     uiType: 1
     uiDuration: 3
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
     eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
+    reverseWaiterMovement: 0
     waitTimeAfter: 0
   - eventName: Waiter comes
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
+    talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
     eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 690659163}
+    reverseWaiterMovement: 0
     waitTimeAfter: 1
   - eventName: Waiter speaks
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
+    talkingAnimations2: []
     uiToShow: {fileID: 1841352456}
     uiType: 2
     uiDuration: 0
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
     eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
     waiterToStart: {fileID: 0}
+    reverseWaiterMovement: 0
     waitTimeAfter: 1
+  loadNextScene: 0
+  nextSceneName: 
 --- !u!4 &1321488467
 Transform:
   m_ObjectHideFlags: 0
@@ -28755,29 +28796,29 @@ MonoBehaviour:
   animator: {fileID: 1377902819}
   sequence:
   - time: 0
-    isTalking: 1
+    animation: 0
   - time: 9
-    isTalking: 0
+    animation: 0
   - time: 18
-    isTalking: 1
+    animation: 0
   - time: 21
-    isTalking: 0
+    animation: 0
   - time: 29
-    isTalking: 1
+    animation: 0
   - time: 36
-    isTalking: 0
+    animation: 0
   - time: 40
-    isTalking: 1
+    animation: 0
   - time: 45
-    isTalking: 0
+    animation: 0
   - time: 49
-    isTalking: 1
+    animation: 0
   - time: 55
-    isTalking: 0
+    animation: 0
   - time: 60
-    isTalking: 1
+    animation: 0
   - time: 66
-    isTalking: 0
+    animation: 0
 --- !u!1 &1382525112
 GameObject:
   m_ObjectHideFlags: 0
@@ -33287,8 +33328,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1001 &1535342821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38893,8 +38937,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveKey: ChosenFoodIndex
   buttonPressed: 0
   chosenIndex: -1
+  hideOnChoose: 1
+  canvasGroup: {fileID: 0}
 --- !u!1 &1849071061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed0856b272be443a8be550ac1e004094, type: 3}
@@ -40591,21 +40638,21 @@ MonoBehaviour:
   animator: {fileID: 1917753206}
   sequence:
   - time: 8
-    isTalking: 1
+    animation: 0
   - time: 13
-    isTalking: 0
+    animation: 0
   - time: 22
-    isTalking: 1
+    animation: 0
   - time: 29
-    isTalking: 0
+    animation: 0
   - time: 45
-    isTalking: 1
+    animation: 0
   - time: 48
-    isTalking: 0
+    animation: 0
   - time: 55
-    isTalking: 1
+    animation: 0
   - time: 59
-    isTalking: 0
+    animation: 0
 --- !u!1 &1918693274
 GameObject:
   m_ObjectHideFlags: 0
@@ -41278,29 +41325,29 @@ MonoBehaviour:
   animator: {fileID: 1938548509}
   sequence:
   - time: 12
-    isTalking: 1
+    animation: 0
   - time: 18
-    isTalking: 0
+    animation: 0
   - time: 21
-    isTalking: 1
+    animation: 0
   - time: 23
-    isTalking: 0
+    animation: 0
   - time: 37
-    isTalking: 1
+    animation: 0
   - time: 40
-    isTalking: 0
+    animation: 0
   - time: 46
-    isTalking: 1
+    animation: 0
   - time: 49
-    isTalking: 0
+    animation: 0
   - time: 59
-    isTalking: 1
+    animation: 0
   - time: 61
-    isTalking: 0
+    animation: 0
   - time: 67
-    isTalking: 1
+    animation: 0
   - time: 69
-    isTalking: 0
+    animation: 0
 --- !u!1001 &1939256618
 PrefabInstance:
   m_ObjectHideFlags: 0

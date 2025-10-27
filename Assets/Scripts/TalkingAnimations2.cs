@@ -5,7 +5,7 @@ public class TalkingAnimations2 : MonoBehaviour
 {
     public Animator animator;
 
-    // ✅ Step 1: Enum for all animations (same as the first script)
+    // Step 1: Enum for all animations (same as the first script)
     public enum AnimationType
     {
         Idle,
@@ -19,7 +19,7 @@ public class TalkingAnimations2 : MonoBehaviour
         LookAtLiam,
         LookAtEmma,
         Laugh,
-        // ✅ Add more as needed
+        // Add more as needed
     }
 
     [System.Serializable]
@@ -62,7 +62,7 @@ public class TalkingAnimations2 : MonoBehaviour
 
     private void PlayAnimation(AnimationType type)
     {
-        // ✅ CrossFade forces the animator to go to the named state smoothly
+        // CrossFade forces the animator to go to the named state smoothly
         animator.CrossFade(type.ToString(), 0.1f);
     }
 }
