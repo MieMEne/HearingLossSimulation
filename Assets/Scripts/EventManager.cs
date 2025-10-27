@@ -61,12 +61,23 @@ public class EventManager : MonoBehaviour
     public bool loadNextScene = false;
     public string nextSceneName = "";
 
-    private readonly Dictionary<GameObject, List<XRBaseInteractable>> _interactablesByObject = new();
-    private readonly Dictionary<XRBaseInteractable, InteractionLayerMask> _originalLayers = new();
-    private readonly HashSet<GameObject> _spawnedAtRuntime = new();
+    private readonly Dictionary<GameObject, List<XRBaseInteractable>> _interactablesByObject =
+        new Dictionary<GameObject, List<XRBaseInteractable>>();
+    private readonly Dictionary<XRBaseInteractable, InteractionLayerMask> _originalLayers =
+        new Dictionary<XRBaseInteractable, InteractionLayerMask>();
+    private readonly HashSet<GameObject> _spawnedAtRuntime = new HashSet<GameObject>();
+
+    // === One-shot story + load guards (NEW) ===
+    private bool _storyStarted = false;     // NEW
+    private bool _storyFinished = false;    // NEW
+    private bool _isLoadingNextScene = false; // NEW
 
     void Start()
     {
+        // Guard against double-start (NEW)
+        if (_storyStarted) return; // NEW
+        _storyStarted = true;      // NEW
+
         foreach (var e in events)
         {
             if (e.grabbableObject != null)
@@ -85,9 +96,19 @@ public class EventManager : MonoBehaviour
         }
 
         Debug.Log("🎉 Story finished!");
+        _storyFinished = true; // NEW
 
-        if (loadNextScene && !string.IsNullOrEmpty(nextSceneName))
-            SceneManager.LoadScene(nextSceneName);
+        // Reliable async load with guard (NEW)
+        if (loadNextScene && !string.IsNullOrEmpty(nextSceneName) && !_isLoadingNextScene)
+        {
+            _isLoadingNextScene = true;
+            StartCoroutine(LoadNextSceneReliable(nextSceneName)); // NEW
+        }
+        else
+        {
+            if (loadNextScene && string.IsNullOrEmpty(nextSceneName))
+                Debug.LogWarning("[EventManager] loadNextScene is true but nextSceneName is empty."); // NEW
+        }
     }
 
     IEnumerator RunEvent(StoryEvent e)
@@ -268,32 +289,32 @@ public class EventManager : MonoBehaviour
         return go;
     }
 
- private void CacheAndHardLock(GameObject go, bool alsoHide)
-{
-    if (go == null) return;
-
-    // Cache all XRBaseInteractables in the object and children
-    if (!_interactablesByObject.ContainsKey(go))
+    private void CacheAndHardLock(GameObject go, bool alsoHide)
     {
-        var list = new List<XRBaseInteractable>();
-        go.GetComponentsInChildren(true, list);
-        _interactablesByObject[go] = list;
+        if (go == null) return;
 
-        foreach (var xri in list)
+        // Cache all XRBaseInteractables in the object and children
+        if (!_interactablesByObject.ContainsKey(go))
         {
-            if (xri == null) continue;
-            // Save original interaction layers
-            if (!_originalLayers.ContainsKey(xri))
-                _originalLayers[xri] = xri.interactionLayers;
+            var list = new List<XRBaseInteractable>();
+            go.GetComponentsInChildren(true, list);
+            _interactablesByObject[go] = list;
+
+            foreach (var xri in list)
+            {
+                if (xri == null) continue;
+                // Save original interaction layers
+                if (!_originalLayers.ContainsKey(xri))
+                    _originalLayers[xri] = xri.interactionLayers;
+            }
         }
+
+        // Disable interactables
+        EnableAndRestore(go, enable: false);
+
+        // Optionally hide the object itself
+        if (alsoHide) go.SetActive(false);
     }
-
-    // Disable interactables
-    EnableAndRestore(go, enable: false);
-
-    // Optionally hide the object itself
-    if (alsoHide) go.SetActive(false);
-}
 
     private void EnableAndRestore(GameObject go, bool enable)
     {
@@ -319,6 +340,57 @@ public class EventManager : MonoBehaviour
             }
         }
     }
-     }
 
+    // ===== Reliable async scene loading (NEW) =====
+    private IEnumerator LoadNextSceneReliable(string sceneName)
+    {
+        // Verify the scene exists in Build Settings
+        bool found = false;
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            var path = SceneUtility.GetScenePathByBuildIndex(i);
+            var name = System.IO.Path.GetFileNameWithoutExtension(path);
+            if (name == sceneName) { found = true; break; }
+        }
+        if (!found)
+        {
+            Debug.LogError($"[EventManager] Next scene '{sceneName}' is NOT in Build Settings (File → Build Settings → Scenes In Build).");
+            yield break;
+        }
 
+        Debug.Log($"[EventManager] Loading next scene: {sceneName} …");
+        var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        if (op == null)
+        {
+            Debug.LogError($"[EventManager] LoadSceneAsync returned null for '{sceneName}'.");
+            yield break;
+        }
+
+        op.allowSceneActivation = true;
+        while (!op.isDone)
+            yield return null;
+
+        Debug.Log($"[EventManager] Scene '{sceneName}' loaded.");
+    }
+
+#if UNITY_EDITOR
+    // Editor-only validation to catch typos/missing scenes (NEW)
+    private void OnValidate()
+    {
+        if (loadNextScene && !string.IsNullOrEmpty(nextSceneName))
+        {
+            bool found = false;
+            for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+            {
+                var path = SceneUtility.GetScenePathByBuildIndex(i);
+                var name = System.IO.Path.GetFileNameWithoutExtension(path);
+                if (name == nextSceneName) { found = true; break; }
+            }
+            if (!found)
+            {
+                Debug.LogError($"[EventManager] Next scene '{nextSceneName}' is not in Build Settings!");
+            }
+        }
+    }
+#endif
+}
