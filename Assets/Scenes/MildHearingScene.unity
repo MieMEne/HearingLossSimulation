@@ -10226,11 +10226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!114 &531379425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16070,11 +16073,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1001 &771210492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17703,11 +17709,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1001 &850526540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28268,6 +28277,28 @@ MonoBehaviour:
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
+  - eventName: Question2 (pepsi no pepsi)
+    speakerSources: []
+    timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
+    talkingAnimations: []
+    talkingAnimations2: []
+    uiToShow: {fileID: 531379422}
+    uiType: 2
+    uiDuration: 0
+    nextEventIfChoice0: 0
+    nextEventIfChoice1: 0
+    grabbableObject: {fileID: 0}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
+    eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
+    waiterToStart: {fileID: 0}
+    reverseWaiterMovement: 0
+    waitTimeAfter: 0
   loadNextScene: 1
   nextSceneName: ModerateHearingScene
 --- !u!4 &1321488467
@@ -33510,11 +33541,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1001 &1535342821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39362,11 +39396,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!114 &1841352459
 MonoBehaviour:
   m_ObjectHideFlags: 0
