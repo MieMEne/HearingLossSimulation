@@ -5544,7 +5544,7 @@ GameObject:
   - component: {fileID: 311493435}
   - component: {fileID: 311493434}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: StartInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16197,7 +16197,7 @@ GameObject:
   - component: {fileID: 772609817}
   - component: {fileID: 772609818}
   m_Layer: 5
-  m_Name: Option1
+  m_Name: StartSimulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16302,7 +16302,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772609816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 174}
+  m_LocalPosition: {x: 0, y: 0, z: 126}
   m_LocalScale: {x: 5.013979, y: 5.0139785, z: 5.01398}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -16310,8 +16310,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 83, y: -263}
-  m_SizeDelta: {x: 200, y: 25}
+  m_AnchoredPosition: {x: 73, y: -160}
+  m_SizeDelta: {x: 106.1, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &773502854
 GameObject:
@@ -17484,7 +17484,7 @@ GameObject:
   - component: {fileID: 840873628}
   - component: {fileID: 840873627}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Interactions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17498,16 +17498,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840873625}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 193.1}
-  m_LocalScale: {x: 10.937261, y: 10.937261, z: 10.9372635}
+  m_LocalPosition: {x: 0, y: 0, z: 222.9}
+  m_LocalScale: {x: 11.643807, y: 11.643807, z: 11.64381}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1568237826}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89, y: 131.2}
-  m_SizeDelta: {x: 110.3, y: 53.6}
+  m_AnchoredPosition: {x: 127, y: 110.8}
+  m_SizeDelta: {x: 99, y: 57.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &840873627
 MonoBehaviour:
@@ -28427,6 +28427,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations:
     - {fileID: 0}
     - {fileID: 0}
@@ -28450,6 +28452,8 @@ MonoBehaviour:
   - eventName: Interaction with Menu
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 0}
@@ -28470,6 +28474,8 @@ MonoBehaviour:
   - eventName: Waiter comes
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 0}
@@ -28490,6 +28496,8 @@ MonoBehaviour:
   - eventName: Waiter speaks
     speakerSources: []
     timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 0}
@@ -30767,7 +30775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 775cdfa10e86c7e46a9e91d876ac5072, type: 3}
+  m_Texture: {fileID: 2800000, guid: 20393bcbc58f64e70acf9fa3068105f2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -30836,16 +30844,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424122789}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 809}
-  m_LocalScale: {x: 8.193318, y: 8.193318, z: 8.19332}
+  m_LocalPosition: {x: 0, y: 0, z: 774}
+  m_LocalScale: {x: 12.276868, y: 12.276868, z: 12.276871}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 222466600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -94, y: -369}
-  m_SizeDelta: {x: 200, y: 25}
+  m_AnchoredPosition: {x: 2, y: -368}
+  m_SizeDelta: {x: 90.6, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1430114843
 PrefabInstance:
@@ -34189,7 +34197,7 @@ GameObject:
   - component: {fileID: 1561711173}
   - component: {fileID: 1561711174}
   m_Layer: 5
-  m_Name: Option1
+  m_Name: Ok
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34294,7 +34302,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561711172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 174}
+  m_LocalPosition: {x: 0, y: 0, z: 360}
   m_LocalScale: {x: 5.013979, y: 5.0139785, z: 5.01398}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -34302,8 +34310,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 83, y: -263}
-  m_SizeDelta: {x: 200, y: 25}
+  m_AnchoredPosition: {x: 530, y: -266}
+  m_SizeDelta: {x: 49.6, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1568237825
 GameObject:
@@ -34317,7 +34325,7 @@ GameObject:
   - component: {fileID: 1568237828}
   - component: {fileID: 1568237827}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38417,7 +38425,7 @@ GameObject:
   - component: {fileID: 1776342593}
   - component: {fileID: 1776342592}
   m_Layer: 5
-  m_Name: Start
+  m_Name: StartInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
