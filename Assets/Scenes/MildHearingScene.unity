@@ -28277,28 +28277,6 @@ MonoBehaviour:
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
-  - eventName: Question2 (pepsi no pepsi)
-    speakerSources: []
-    timeBetweenClips: 0
-    narratorClip: {fileID: 0}
-    narratorVolume: 1
-    talkingAnimations: []
-    talkingAnimations2: []
-    uiToShow: {fileID: 531379422}
-    uiType: 2
-    uiDuration: 0
-    nextEventIfChoice0: 0
-    nextEventIfChoice1: 0
-    grabbableObject: {fileID: 0}
-    grabbablePrefab: {fileID: 0}
-    spawnPoint: {fileID: 0}
-    parentToSpawnPoint: 0
-    eventDuration: 0
-    keepInteractableAfterEvent: 0
-    showGrabbableAtEventStart: 0
-    waiterToStart: {fileID: 0}
-    reverseWaiterMovement: 0
-    waitTimeAfter: 0
   loadNextScene: 1
   nextSceneName: ModerateHearingScene
 --- !u!4 &1321488467
