@@ -10579,11 +10579,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1001 &537642896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10670,6 +10673,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030974099, guid: abc00000000007945107163107764089, type: 3}
   m_PrefabInstance: {fileID: 537642896}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &538450392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538450394}
+  - component: {fileID: 538450393}
+  m_Layer: 0
+  m_Name: FoodSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &538450393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538450392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97817f42c886eb74c807daaeb2f17af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodPrefabs:
+  - {fileID: 1288887504348194792, guid: f038c29c0a876fb498167e11d4eaa303, type: 3}
+  - {fileID: 8656583813883564017, guid: 93acb707be4af714e8ba18f45006f0d0, type: 3}
+  spawnPoint: {fileID: 538450394}
+  saveKey: ChosenFoodIndex
+  destroyOldChildrenAtStart: 1
+  spawnOnStart: 1
+--- !u!4 &538450394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538450392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.116, y: 1.13, z: -9.536}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &543379773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34423,11 +34477,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1001 &1535342821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40249,11 +40306,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!114 &1841352459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56218,3 +56278,4 @@ SceneRoots:
   - {fileID: 556962037}
   - {fileID: 232649611}
   - {fileID: 1797772027}
+  - {fileID: 538450394}

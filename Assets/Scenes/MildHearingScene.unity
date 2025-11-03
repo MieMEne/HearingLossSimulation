@@ -39376,7 +39376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
-  enableSaving: 0
+  enableSaving: 1
   saveKey: ChosenFoodIndex
   autoBindChildButtons: 1
   explicitButtons: []
@@ -39398,7 +39398,7 @@ MonoBehaviour:
   option2Button: {fileID: 591993276}
   option1ResultObject: {fileID: 0}
   option2ResultObject: {fileID: 0}
-  choiceUI: {fileID: 0}
+  choiceUI: {fileID: 1841352458}
 --- !u!1 &1849071061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed0856b272be443a8be550ac1e004094, type: 3}
