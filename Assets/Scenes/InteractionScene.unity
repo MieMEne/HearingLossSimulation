@@ -10094,11 +10094,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1001 &537642896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15024,6 +15027,76 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1001 &712890513
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.333
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.348
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.492
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+      propertyPath: m_Name
+      value: Pasta
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -8700617353114198275, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 54b63e0c0e087484db8815edbde8ca6c, type: 3}
 --- !u!1001 &717157156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33328,11 +33401,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1001 &1535342821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38937,11 +39013,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c501a48560f5aed4c9317e05724444bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: ChosenFoodIndex
-  buttonPressed: 0
-  chosenIndex: -1
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
+  enableSaving: 0
+  saveKey: ChosenFoodIndex
+  autoBindChildButtons: 1
+  explicitButtons: []
+  buttonPressed: 0
+  chosenIndex: -1
 --- !u!1 &1849071061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed0856b272be443a8be550ac1e004094, type: 3}
@@ -54876,3 +54955,4 @@ SceneRoots:
   - {fileID: 1395464093}
   - {fileID: 587600254}
   - {fileID: 651156469}
+  - {fileID: 712890513}
