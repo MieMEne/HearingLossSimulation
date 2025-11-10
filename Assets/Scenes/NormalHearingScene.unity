@@ -27942,7 +27942,7 @@ MonoBehaviour:
     uiDuration: 0
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
-    grabbableObject: {fileID: 0}
+    grabbableObject: {fileID: 1746650929}
     grabbablePrefab: {fileID: 0}
     spawnPoint: {fileID: 0}
     parentToSpawnPoint: 0
@@ -27974,6 +27974,30 @@ MonoBehaviour:
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
+  - eventName: Waiting
+    speakerSources:
+    - {fileID: 0}
+    timeBetweenClips: 0
+    narratorClip: {fileID: 0}
+    narratorVolume: 1
+    talkingAnimations:
+    - {fileID: 0}
+    talkingAnimations2: []
+    uiToShow: {fileID: 0}
+    uiType: 0
+    uiDuration: 0
+    nextEventIfChoice0: -1
+    nextEventIfChoice1: -1
+    grabbableObject: {fileID: 1746650929}
+    grabbablePrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    parentToSpawnPoint: 0
+    eventDuration: 0
+    keepInteractableAfterEvent: 0
+    showGrabbableAtEventStart: 0
+    waiterToStart: {fileID: 0}
+    reverseWaiterMovement: 0
+    waitTimeAfter: 25
   - eventName: Waiter comes
     speakerSources: []
     timeBetweenClips: 0
@@ -27986,7 +28010,7 @@ MonoBehaviour:
     uiDuration: 0
     nextEventIfChoice0: -1
     nextEventIfChoice1: -1
-    grabbableObject: {fileID: 0}
+    grabbableObject: {fileID: 1746650929}
     grabbablePrefab: {fileID: 0}
     spawnPoint: {fileID: 0}
     parentToSpawnPoint: 0
