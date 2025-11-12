@@ -6,12 +6,12 @@ public class WaterJugPour : MonoBehaviour
 {
     private Animator animator;
     private XRBaseInteractable interactable;
-    private bool isPouring;
+    private bool isAnimating;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
-        interactable = GetComponent<XRBaseInteractable>(); // XR Simple Interactable works (it derives from XRBaseInteractable)
+        interactable = GetComponent<XRBaseInteractable>();
     }
 
     void OnEnable()
@@ -26,14 +26,16 @@ public class WaterJugPour : MonoBehaviour
 
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (isPouring) return;
-        isPouring = true;
-        animator.SetTrigger("Pour");
+        if (isAnimating) return;  // Prevent re-triggering while animation is playing
+        isAnimating = true;
+
+        animator.ResetTrigger("LiftAndPour");
+        animator.SetTrigger("LiftAndPour");
     }
 
-    // Call this from an Animation Event at the end of PourWater
-    public void OnPourFinished()
+    // Optional: add this if you want to allow replay after the animation ends
+    public void OnAnimationFinished()
     {
-        isPouring = false;
+        isAnimating = false;
     }
 }
