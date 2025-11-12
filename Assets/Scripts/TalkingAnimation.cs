@@ -19,6 +19,9 @@ public class TalkingAnimations : MonoBehaviour
         LookAtLiam,
         LookAtEmma,
         Laugh,
+        Normal,
+        Mild1,
+        Mild2,
         // ✅ Add more as needed
     }
 
