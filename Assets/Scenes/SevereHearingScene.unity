@@ -31774,8 +31774,8 @@ MonoBehaviour:
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
-  loadNextScene: 0
-  nextSceneName: 
+  loadNextScene: 1
+  nextSceneName: EndScene
 --- !u!4 &1321488467
 Transform:
   m_ObjectHideFlags: 0
