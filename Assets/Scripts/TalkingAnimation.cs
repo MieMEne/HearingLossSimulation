@@ -5,8 +5,8 @@ public class TalkingAnimations : MonoBehaviour
 {
     public Animator animator;
 
-    // ✅ Step 1: Enum for all animations you want available in dropdown
-    public enum AnimationType
+    // BODY animations = Layer 0
+    public enum BodyAnimationType
     {
         Idle,
         Idle2,
@@ -19,21 +19,45 @@ public class TalkingAnimations : MonoBehaviour
         LookAtLiam,
         LookAtEmma,
         Laugh,
-        Normal,
-        Mild1,
-        Mild2,
-        // ✅ Add more as needed
+    }
+
+    // FACE animations = Layer 1
+    public enum FaceAnimationType
+    {
+        None,
+        Liam_Normal1,
+        Liam_Normal2,
+        Liam_Normal3,
+        Liam_Normal4,
+        LiamMild1,
+        LiamMild2,
+        LiamMild3,
+        LiamMild4,
+        LiamMod1,
+        LiamMod2,
+        LiamMod3,
+        LiamMod4,
+        LiamMod5,
+        LiamMod6,
+        LiamSevere1,
+        LiamSevere2,
+        LiamSevere3,
+        LiamSevere4,
+        // long clips, no loops needed
     }
 
     [System.Serializable]
     public struct AnimationStep
     {
-        public float time;               // When to play this animation
-        public AnimationType animation;  // Dropdown appears here!
+        public float time;
+        public BodyAnimationType bodyAnim;
+        public FaceAnimationType faceAnim;   // Only set when you want a NEW face clip
     }
 
     public AnimationStep[] sequence;
+
     private Coroutine sequenceCoroutine;
+    private FaceAnimationType currentFaceAnim = FaceAnimationType.None;
 
     public void PlaySequence()
     {
@@ -46,25 +70,39 @@ public class TalkingAnimations : MonoBehaviour
     private IEnumerator RunSequence()
     {
         float timer = 0f;
-        int currentIndex = 0;
+        int index = 0;
 
-        while (currentIndex < sequence.Length)
+        while (index < sequence.Length)
         {
             timer += Time.deltaTime;
 
-            if (timer >= sequence[currentIndex].time)
+            if (timer >= sequence[index].time)
             {
-                PlayAnimation(sequence[currentIndex].animation);
-                currentIndex++;
+                // Always play body animation
+                PlayBodyAnimation(sequence[index].bodyAnim);
+
+                // Play face animation ONLY if it is a new one
+                if (sequence[index].faceAnim != FaceAnimationType.None &&
+                    sequence[index].faceAnim != currentFaceAnim)
+                {
+                    currentFaceAnim = sequence[index].faceAnim;
+                    PlayFaceAnimation(currentFaceAnim);
+                }
+
+                index++;
             }
 
             yield return null;
         }
     }
 
-    private void PlayAnimation(AnimationType type)
+    private void PlayBodyAnimation(BodyAnimationType type)
     {
-        // ✅ CrossFade forces the animator to go to the named state smoothly
-        animator.CrossFade(type.ToString(), 0.1f);
+        animator.CrossFade(type.ToString(), 0.1f, 0); // Layer 0
+    }
+
+    private void PlayFaceAnimation(FaceAnimationType type)
+    {
+        animator.CrossFade(type.ToString(), 0.1f, 1); // Layer 1
     }
 }
