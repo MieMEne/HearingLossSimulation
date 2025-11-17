@@ -11851,7 +11851,6 @@ GameObject:
   m_Component:
   - component: {fileID: 531379423}
   - component: {fileID: 531379424}
-  - component: {fileID: 531379425}
   m_Layer: 5
   m_Name: SecondQuestion
   m_TagString: Untagged
@@ -11895,29 +11894,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hideOnChoose: 1
   canvasGroup: {fileID: 0}
-  enableSaving: 0
-  saveKey: ChosenFoodIndex
+  enableSaving: 1
+  saveKey: 
   autoBindChildButtons: 1
   explicitButtons: []
   buttonPressed: 0
   chosenIndex: -1
---- !u!114 &531379425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531379422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f08d9c0f701b049b42b6e557f42a6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  option1Button: {fileID: 603741374}
-  option2Button: {fileID: 670846114}
-  option1ResultObject: {fileID: 0}
-  option2ResultObject: {fileID: 0}
-  choiceUI: {fileID: 0}
 --- !u!1001 &537642896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31660,19 +31642,19 @@ MonoBehaviour:
     waiterToStart: {fileID: 690659163}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
-  - eventName: Waiter Speaks
-    speakerSources: []
+  - eventName: WaiterSpeaks
+    speakerSources:
+    - {fileID: 2073321498}
     timeBetweenClips: 0
     narratorClip: {fileID: 0}
     narratorVolume: 1
-    talkingAnimations:
-    - {fileID: 0}
+    talkingAnimations: []
     talkingAnimations2: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
-    nextEventIfChoice0: 0
-    nextEventIfChoice1: 0
+    nextEventIfChoice0: -1
+    nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
     grabbablePrefab: {fileID: 0}
     spawnPoint: {fileID: 0}
@@ -31683,19 +31665,18 @@ MonoBehaviour:
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
-  - eventName: WaiterSpeaks2
+  - eventName: Pepsi No pepsi?
     speakerSources: []
     timeBetweenClips: 0
     narratorClip: {fileID: 0}
     narratorVolume: 1
-    talkingAnimations:
-    - {fileID: 0}
+    talkingAnimations: []
     talkingAnimations2: []
-    uiToShow: {fileID: 0}
-    uiType: 0
+    uiToShow: {fileID: 531379422}
+    uiType: 2
     uiDuration: 0
-    nextEventIfChoice0: 0
-    nextEventIfChoice1: 0
+    nextEventIfChoice0: -1
+    nextEventIfChoice1: -1
     grabbableObject: {fileID: 0}
     grabbablePrefab: {fileID: 0}
     spawnPoint: {fileID: 0}
@@ -32627,21 +32608,29 @@ MonoBehaviour:
   animator: {fileID: 1377902819}
   sequence:
   - time: 0
-    animation: 3
+    bodyAnim: 0
+    faceAnim: 0
   - time: 3
-    animation: 1
+    bodyAnim: 0
+    faceAnim: 0
   - time: 7
-    animation: 6
+    bodyAnim: 0
+    faceAnim: 0
   - time: 12
-    animation: 1
+    bodyAnim: 0
+    faceAnim: 0
   - time: 18
-    animation: 4
+    bodyAnim: 0
+    faceAnim: 0
   - time: 23
-    animation: 1
+    bodyAnim: 0
+    faceAnim: 0
   - time: 36
-    animation: 2
+    bodyAnim: 0
+    faceAnim: 0
   - time: 38
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
 --- !u!114 &1377902821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45030,21 +45019,29 @@ MonoBehaviour:
   animator: {fileID: 1917753206}
   sequence:
   - time: 12
-    animation: 2
+    bodyAnim: 0
+    faceAnim: 0
   - time: 14
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
   - time: 23
-    animation: 6
+    bodyAnim: 0
+    faceAnim: 0
   - time: 26
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
   - time: 28
-    animation: 3
+    bodyAnim: 0
+    faceAnim: 0
   - time: 31
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
   - time: 37
-    animation: 8
+    bodyAnim: 0
+    faceAnim: 0
   - time: 39
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
 --- !u!114 &1917753208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45741,17 +45738,23 @@ MonoBehaviour:
   animator: {fileID: 1938548509}
   sequence:
   - time: 3
-    animation: 4
+    bodyAnim: 0
+    faceAnim: 0
   - time: 6
-    animation: 1
+    bodyAnim: 0
+    faceAnim: 0
   - time: 15
-    animation: 2
+    bodyAnim: 0
+    faceAnim: 0
   - time: 17
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
   - time: 32
-    animation: 5
+    bodyAnim: 0
+    faceAnim: 0
   - time: 35
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
 --- !u!114 &1938548511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47731,7 +47734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1640370698525606534, guid: a3878af496c7d4beea0f38ba3e9a30f0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.015
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 1640370698525606534, guid: a3878af496c7d4beea0f38ba3e9a30f0, type: 3}
       propertyPath: m_LocalScale.y
