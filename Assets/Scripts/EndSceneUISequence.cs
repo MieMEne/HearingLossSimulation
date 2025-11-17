@@ -19,6 +19,10 @@ public class EndSceneUISequence : MonoBehaviour
     [Header("AudioSource to play the voice clips")]
     public AudioSource audioSource;
 
+    [Header("Adjust volume (0–1)")]
+    [Range(0f, 1f)]
+    public float voiceVolume = 1f;
+
     [Header("Scene to load after the last clip")]
     public string startSceneName = "StartScene";
 
@@ -29,7 +33,7 @@ public class EndSceneUISequence : MonoBehaviour
 
     void Start()
     {
-        // Make sure we have an AudioSource
+        // Ensure we have an AudioSource
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
@@ -40,7 +44,7 @@ public class EndSceneUISequence : MonoBehaviour
         }
 
         HideAllUIPanels();
-        NextStep();   // start with the first UI + audio
+        NextStep();
     }
 
     private void HideAllUIPanels()
@@ -50,9 +54,7 @@ public class EndSceneUISequence : MonoBehaviour
         foreach (var s in steps)
         {
             if (s != null && s.uiPanel != null)
-            {
                 s.uiPanel.SetActive(false);
-            }
         }
     }
 
@@ -60,35 +62,27 @@ public class EndSceneUISequence : MonoBehaviour
     {
         currentIndex++;
 
-        // If we've passed the last step, go back to the start scene
         if (steps == null || currentIndex >= steps.Length)
         {
             if (!string.IsNullOrEmpty(startSceneName))
-            {
-                Debug.Log("[EndSceneUISequence] All steps finished, loading scene: " + startSceneName);
                 SceneManager.LoadScene(startSceneName);
-            }
-            else
-            {
-                Debug.LogWarning("[EndSceneUISequence] startSceneName is empty, staying in current scene.");
-            }
+
             return;
         }
 
-        // Show only the current panel
         HideAllUIPanels();
         Step step = steps[currentIndex];
 
         if (step != null && step.uiPanel != null)
-        {
             step.uiPanel.SetActive(true);
-        }
 
-        // Play the voice clip for this step
+        // --- PLAY AUDIO WITH ADJUSTED VOLUME ---
         if (step != null && step.voiceClip != null && audioSource != null)
         {
             audioSource.Stop();
             audioSource.clip = step.voiceClip;
+
+            audioSource.volume = voiceVolume;   // <<< ALWAYS applied before playing
             audioSource.Play();
 
             float delay = step.voiceClip.length + extraDelayAfterClip;
@@ -96,7 +90,6 @@ public class EndSceneUISequence : MonoBehaviour
         }
         else
         {
-            // If there's no clip, just move on quickly
             Invoke(nameof(NextStep), 0.5f);
         }
     }

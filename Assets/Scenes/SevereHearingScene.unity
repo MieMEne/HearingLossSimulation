@@ -31875,8 +31875,8 @@ MonoBehaviour:
     waiterToStart: {fileID: 0}
     reverseWaiterMovement: 0
     waitTimeAfter: 0
-  loadNextScene: 0
-  nextSceneName: 
+  loadNextScene: 1
+  nextSceneName: EndScene
 --- !u!4 &1321488467
 Transform:
   m_ObjectHideFlags: 0
@@ -32984,21 +32984,29 @@ MonoBehaviour:
   animator: {fileID: 1377902819}
   sequence:
   - time: 0
-    animation: 4
+    bodyAnim: 0
+    faceAnim: 0
   - time: 12
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
   - time: 15
-    animation: 6
+    bodyAnim: 0
+    faceAnim: 0
   - time: 23
-    animation: 1
+    bodyAnim: 0
+    faceAnim: 0
   - time: 29
-    animation: 9
+    bodyAnim: 0
+    faceAnim: 0
   - time: 37
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
   - time: 41
-    animation: 9
+    bodyAnim: 0
+    faceAnim: 0
   - time: 45
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
 --- !u!114 &1377902821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45992,21 +46000,29 @@ MonoBehaviour:
   animator: {fileID: 1917753206}
   sequence:
   - time: 12
-    animation: 10
+    bodyAnim: 0
+    faceAnim: 0
   - time: 15
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
   - time: 26
-    animation: 3
+    bodyAnim: 0
+    faceAnim: 0
   - time: 29
-    animation: 1
+    bodyAnim: 0
+    faceAnim: 0
   - time: 39
-    animation: 4
+    bodyAnim: 0
+    faceAnim: 0
   - time: 41
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
   - time: 47
-    animation: 8
+    bodyAnim: 0
+    faceAnim: 0
   - time: 49
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
 --- !u!1 &1918693274
 GameObject:
   m_ObjectHideFlags: 0
@@ -46744,17 +46760,23 @@ MonoBehaviour:
   animator: {fileID: 1938548509}
   sequence:
   - time: 23
-    animation: 4
+    bodyAnim: 0
+    faceAnim: 0
   - time: 26
-    animation: 1
+    bodyAnim: 0
+    faceAnim: 0
   - time: 37
-    animation: 5
+    bodyAnim: 0
+    faceAnim: 0
   - time: 39
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
   - time: 45
-    animation: 3
+    bodyAnim: 0
+    faceAnim: 0
   - time: 48
-    animation: 0
+    bodyAnim: 0
+    faceAnim: 0
 --- !u!114 &1938548511
 MonoBehaviour:
   m_ObjectHideFlags: 0
