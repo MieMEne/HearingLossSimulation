@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SevereHearingScene.unity
     guid: 211fd3a313176f9409adaa8075987640
+  - enabled: 0
+    path: Assets/Scenes/EndScene.unity
+    guid: 3cd0837f5594b3a45a108c4960dcf28d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ddd3f64d7b4dc4149823522c736ed21c, type: 2}
