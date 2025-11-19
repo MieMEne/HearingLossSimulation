@@ -17,22 +17,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/InteractionScene.unity
     guid: 97a2c648c96bf4dbcac5c691454b5529
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 4a757fd9320a53247bb44b6db35f4471
   - enabled: 1
     path: Assets/Scenes/NormalHearingScene.unity
     guid: 90fa7788f0899fe44b5b6e0804676fc3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MildHearingScene.unity
     guid: 60ffa2dfe69bf9f4fb22fb22794bf4c8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ModerateHearingScene.unity
     guid: f497331b3b7d031488af376d874e95a9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SevereHearingScene.unity
     guid: 211fd3a313176f9409adaa8075987640
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 3cd0837f5594b3a45a108c4960dcf28d
   m_configObjects:

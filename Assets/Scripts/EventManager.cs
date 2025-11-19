@@ -22,6 +22,7 @@ public class StoryEvent
     [Header("Animations")]
     public List<TalkingAnimations> talkingAnimations = new List<TalkingAnimations>();
     public List<TalkingAnimations2> talkingAnimations2 = new List<TalkingAnimations2>();
+    public List<TalkingAnimations3> talkingAnimations3 = new List<TalkingAnimations3>();
 
     [Header("UI")]
     public GameObject uiToShow;
