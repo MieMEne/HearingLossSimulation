@@ -1678,7 +1678,7 @@ RectTransform:
   m_GameObject: {fileID: 70665182}
   m_LocalRotation: {x: -0.0040186984, y: 0.9006597, z: 0.008331628, w: 0.43442672}
   m_LocalPosition: {x: 0, y: 0, z: -0.19840908}
-  m_LocalScale: {x: 0.00044999993, y: 0.00045000002, z: 0.00044999993}
+  m_LocalScale: {x: 0.0007265004, y: 0.0007265004, z: 0.0007265004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 311493433}
@@ -8250,7 +8250,7 @@ RectTransform:
   m_GameObject: {fileID: 383802152}
   m_LocalRotation: {x: -0.0040186984, y: 0.9006597, z: 0.008331628, w: 0.43442672}
   m_LocalPosition: {x: 0, y: 0, z: -0.245}
-  m_LocalScale: {x: 0.00044999993, y: 0.00045000002, z: 0.00044999993}
+  m_LocalScale: {x: 0.0007265004, y: 0.0007265004, z: 0.0007265004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 740207733}
@@ -25717,7 +25717,7 @@ RectTransform:
   m_GameObject: {fileID: 1080024612}
   m_LocalRotation: {x: -0.0040186984, y: 0.9006597, z: 0.008331628, w: 0.43442672}
   m_LocalPosition: {x: 0, y: 0, z: -0.245}
-  m_LocalScale: {x: 0.00044999993, y: 0.00045000002, z: 0.00044999993}
+  m_LocalScale: {x: 0.0007265004, y: 0.0007265004, z: 0.0007265004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1441421118}
@@ -29005,7 +29005,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1201439008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29920,7 +29920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1239854815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32177,6 +32177,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     talkingAnimations2: []
+    talkingAnimations3: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 3
@@ -32199,6 +32200,7 @@ MonoBehaviour:
     narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
+    talkingAnimations3: []
     uiToShow: {fileID: 0}
     uiType: 1
     uiDuration: 3
@@ -32221,6 +32223,7 @@ MonoBehaviour:
     narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
+    talkingAnimations3: []
     uiToShow: {fileID: 0}
     uiType: 0
     uiDuration: 0
@@ -32243,6 +32246,7 @@ MonoBehaviour:
     narratorVolume: 1
     talkingAnimations: []
     talkingAnimations2: []
+    talkingAnimations3: []
     uiToShow: {fileID: 0}
     uiType: 2
     uiDuration: 0
@@ -32715,7 +32719,7 @@ RectTransform:
   m_GameObject: {fileID: 1340361711}
   m_LocalRotation: {x: -0.0040186984, y: 0.9006597, z: 0.008331628, w: 0.43442672}
   m_LocalPosition: {x: 0, y: 0, z: -0.245}
-  m_LocalScale: {x: 0.00044999993, y: 0.00045000002, z: 0.00044999993}
+  m_LocalScale: {x: 0.0007265004, y: 0.0007265005, z: 0.0007265004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1568237826}
@@ -44071,7 +44075,7 @@ RectTransform:
   m_GameObject: {fileID: 1762718690}
   m_LocalRotation: {x: -0.0040186984, y: 0.9006597, z: 0.008331628, w: 0.43442672}
   m_LocalPosition: {x: 0, y: 0, z: -0.245}
-  m_LocalScale: {x: 0.00044999993, y: 0.00045000002, z: 0.00044999993}
+  m_LocalScale: {x: 0.0007265004, y: 0.0007265004, z: 0.0007265004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1860320692}
