@@ -48233,6 +48233,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.0000021593644
       objectReference: {fileID: 0}
+    - target: {fileID: 3209018298546935164, guid: 3c46d5ee7d091401cb424ab9650a67fb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 039f750ace505a748b25d404669e85bf, type: 2}
     - target: {fileID: 3209660629809869843, guid: 3c46d5ee7d091401cb424ab9650a67fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.0000011451818
@@ -48359,7 +48363,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917753204}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 81affeb9da3e64ba0b2c1717c39e114f, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 3c46d5ee7d091401cb424ab9650a67fb, type: 3}
   m_Controller: {fileID: 9100000, guid: 2877119c3d78d254c8bcf522101d144e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -48367,17 +48371,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'mixamorig:RightFoot'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-    'mixamorig:LeftHand'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:Spine1'\n\tTransform
-    'mixamorig:Spine2'\n\tTransform 'mixamorig:LeftHandPinky3'\n\tTransform 'mixamorig:LeftHandThumb1'\n\tTransform
-    'mixamorig:RightHandPinky3'\n\tTransform 'mixamorig:LeftHandRing2'\n\tand more
-    ...\n\tFrom animation clip 'Liam_Normal1'\n\tFrom animation clip 'Liam_Normal2'\n\tFrom
-    animation clip 'Liam_Normal3'\n\tFrom animation clip 'Liam_Normal4'\n\tFrom animation
-    clip 'LiamMild1'\n\tFrom animation clip 'LiamMild2'\n\tFrom animation clip 'LiamMild3'\n\tFrom
-    animation clip 'LiamMild3.001'\n\tFrom animation clip 'LiamMild4'\n\tFrom animation
-    clip 'LiamMod1'\n\tand more ..."
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
