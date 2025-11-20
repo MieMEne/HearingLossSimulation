@@ -494,6 +494,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-262365878691718690
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SofiaIdle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -6272672380647108982, guid: 41c6286d6f2f142498c0a5ac1d09c058, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -821,115 +847,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMild1
+  - m_Name: SofiaLipsync
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMild2
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMild3
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMild4
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMild5
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMild6
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMod1
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMod2
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMod3
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMod4
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMod5_001
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMod6
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMod7
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaMod8
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaSever1
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaSevere2
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaSevere3
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaSevere4
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: EmmaSevere5
+  - m_Name: EmmaLipSync
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1278,6 +1202,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &5282681310449899752
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EmmaLipSync
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 5911646328813160219, guid: 42eba2f61006148ca9fbc6b64449d26b, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &5439938768273861129
 AnimatorState:
   serializedVersion: 6
@@ -1396,61 +1346,73 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7326583845958303438}
-    m_Position: {x: -527.3536, y: 485.45615, z: 0}
+    m_Position: {x: -320, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6006443538100453000}
-    m_Position: {x: -517.3536, y: 495.45615, z: 0}
+    m_Position: {x: -320, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5438226747884493141}
-    m_Position: {x: -507.35358, y: 505.45615, z: 0}
+    m_Position: {x: -320, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8364584556127067266}
-    m_Position: {x: -497.35358, y: 515.4562, z: 0}
+    m_Position: {x: -320, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 276106068278038215}
-    m_Position: {x: -487.35358, y: 525.4562, z: 0}
+    m_Position: {x: -320, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2765679620765962817}
-    m_Position: {x: -477.35358, y: 535.4562, z: 0}
+    m_Position: {x: -320, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3129588309666461255}
-    m_Position: {x: -467.35358, y: 545.4562, z: 0}
+    m_Position: {x: -320, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7821469482294057157}
-    m_Position: {x: -457.35358, y: 555.4562, z: 0}
+    m_Position: {x: -320, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8592318928720848524}
-    m_Position: {x: -447.35358, y: 565.4562, z: 0}
+    m_Position: {x: -320, y: 340, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7052660393800556492}
-    m_Position: {x: -437.35358, y: 575.4562, z: 0}
+    m_Position: {x: -320, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6454984809123515793}
-    m_Position: {x: -427.35358, y: 585.4562, z: 0}
+    m_Position: {x: -320, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6055001483932248350}
-    m_Position: {x: -417.35358, y: 595.4562, z: 0}
+    m_Position: {x: -320, y: 460, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4744807105883857187}
-    m_Position: {x: -407.35358, y: 605.4562, z: 0}
+    m_Position: {x: -320, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7903422490103249902}
-    m_Position: {x: -397.35358, y: 615.4562, z: 0}
+    m_Position: {x: -320, y: 540, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 707564440246554238}
-    m_Position: {x: -387.35358, y: 625.4562, z: 0}
+    m_Position: {x: -320, y: 580, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3884974525183152539}
-    m_Position: {x: -377.35358, y: 635.4562, z: 0}
+    m_Position: {x: -320, y: 620, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6189603704499005328}
-    m_Position: {x: -367.35358, y: 645.4562, z: 0}
+    m_Position: {x: -320, y: 660, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7897057883688102807}
-    m_Position: {x: -357.35358, y: 655.4562, z: 0}
+    m_Position: {x: -320, y: 700, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7498741405527001563}
-    m_Position: {x: -347.35358, y: 665.4562, z: 0}
+    m_Position: {x: -320, y: 740, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 8012394095802713981}
+    m_Position: {x: 30, y: 360, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -262365878691718690}
+    m_Position: {x: 30, y: 230, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 8035796457458002321}
+    m_Position: {x: 30, y: 270, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 5282681310449899752}
+    m_Position: {x: 30, y: 320, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -1461,3 +1423,55 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -7538650839947107019}
+--- !u!1102 &8012394095802713981
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EmmaIdle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -6971266645134081439, guid: 1c0c8549180ef4642bd183fbcfd6a100, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &8035796457458002321
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SofiaLipsync
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -2660361981614582231, guid: 41c6286d6f2f142498c0a5ac1d09c058, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
