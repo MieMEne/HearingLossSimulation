@@ -124,6 +124,9 @@ public class EventManager : MonoBehaviour
         if (e.talkingAnimations2 != null)
             foreach (var anim in e.talkingAnimations2) anim?.PlaySequence();
 
+        if (e.talkingAnimations3 != null)
+            foreach (var anim in e.talkingAnimations3) anim?.PlaySequence();
+
         // Handle grabbables early if needed
         GameObject earlyGo = null;
         bool grabbableAlreadyActivated = false;
