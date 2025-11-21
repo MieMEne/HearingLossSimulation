@@ -14770,7 +14770,7 @@ MonoBehaviour:
   - time: 0
     bodyAnim: 2
     faceAnim: 22
-  - time: 0
+  - time: 1
     bodyAnim: 2
     faceAnim: 21
 --- !u!95 &690659167 stripped
