@@ -139,3 +139,7 @@ public class ChoiceUI : MonoBehaviour
         _boundButtons.Clear();
     }
 }
+
+// Reference
+// https://www.youtube.com/watch?v=_nRzoTzeyxU
+// This script was created with inspiration from Copilot and chatgpt

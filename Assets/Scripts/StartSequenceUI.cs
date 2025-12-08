@@ -41,3 +41,6 @@ public class StartSequenceUI : MonoBehaviour
     public void OnStartSimulationPressed() { ShowOnly(screen3); }
     public void OnOkPressed() { SceneManager.LoadScene(nextSceneName); }
 }
+
+//Reference
+// This script was created with inspiration from Copolit and Chatgpt

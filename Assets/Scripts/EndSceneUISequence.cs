@@ -76,13 +76,13 @@ public class EndSceneUISequence : MonoBehaviour
         if (step != null && step.uiPanel != null)
             step.uiPanel.SetActive(true);
 
-        // --- PLAY AUDIO WITH ADJUSTED VOLUME ---
+        // Play audio with adjustable volume
         if (step != null && step.voiceClip != null && audioSource != null)
         {
             audioSource.Stop();
             audioSource.clip = step.voiceClip;
 
-            audioSource.volume = voiceVolume;   // <<< ALWAYS applied before playing
+            audioSource.volume = voiceVolume;   // ALWAYS applied before playing
             audioSource.Play();
 
             float delay = step.voiceClip.length + extraDelayAfterClip;
@@ -94,3 +94,5 @@ public class EndSceneUISequence : MonoBehaviour
         }
     }
 }
+
+// This script was created with inspiration from Copolit and Chatgpt

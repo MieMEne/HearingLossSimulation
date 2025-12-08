@@ -5,7 +5,7 @@ public class OptionsFood : MonoBehaviour
 {
     [Header("Assign in Inspector")]
     public Button option1Button;           // Burger
-    public Button option2Button;           // Soup
+    public Button option2Button;           // Bolognaise
 
     public GameObject option1ResultObject; // optional preview for burger
     public GameObject option2ResultObject; // optional preview for soup
@@ -27,7 +27,7 @@ public class OptionsFood : MonoBehaviour
         if (option2ResultObject) option2ResultObject.SetActive(false);
 
         option1Button.onClick.AddListener(() => Pick(0)); // 0 = burger
-        option2Button.onClick.AddListener(() => Pick(1)); // 1 = soup
+        option2Button.onClick.AddListener(() => Pick(1)); // 1 = bolognaise
     }
 
     void Pick(int index)
@@ -43,3 +43,6 @@ public class OptionsFood : MonoBehaviour
         Debug.Log($"[OptionsFood] Picked index {index}");
     }
 }
+
+//Reference
+// This scritp was created with inspiration from Copolit and chatgpt

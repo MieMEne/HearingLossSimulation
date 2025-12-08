@@ -17,3 +17,6 @@ public class animationController : MonoBehaviour
 
     }
 }
+
+//Reference
+// https://www.youtube.com/watch?v=3dYSHu95P_0&t=4s

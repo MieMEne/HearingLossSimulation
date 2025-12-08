@@ -78,3 +78,6 @@ public class WaiterWalking : MonoBehaviour
         return walking;
     }
 }
+
+//Reference
+// This script was created with inspiration from Copolit and Chatgpt

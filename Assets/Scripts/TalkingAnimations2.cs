@@ -113,3 +113,6 @@ public class TalkingAnimations2 : MonoBehaviour
         animator.CrossFade(type.ToString(), 0.1f, 1); // Layer 1
     }
 }
+
+//Reference
+// This script was created with inspiration from Copolit and Chatgpt

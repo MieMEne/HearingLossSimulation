@@ -68,16 +68,16 @@ public class EventManager : MonoBehaviour
         new Dictionary<XRBaseInteractable, InteractionLayerMask>();
     private readonly HashSet<GameObject> _spawnedAtRuntime = new HashSet<GameObject>();
 
-    // === One-shot story + load guards (NEW) ===
-    private bool _storyStarted = false;     // NEW
-    private bool _storyFinished = false;    // NEW
-    private bool _isLoadingNextScene = false; // NEW
+    // One-shot story + load guards 
+    private bool _storyStarted = false;    
+    private bool _storyFinished = false;    
+    private bool _isLoadingNextScene = false; 
 
     void Start()
     {
-        // Guard against double-start (NEW)
-        if (_storyStarted) return; // NEW
-        _storyStarted = true;      // NEW
+        // Guard against double-start 
+        if (_storyStarted) return;
+        _storyStarted = true;     
 
         foreach (var e in events)
         {
@@ -96,19 +96,19 @@ public class EventManager : MonoBehaviour
             currentIndex++;
         }
 
-        Debug.Log("🎉 Story finished!");
-        _storyFinished = true; // NEW
+        Debug.Log(" Story finished!");
+        _storyFinished = true; 
 
-        // Reliable async load with guard (NEW)
+        // Reliable async load with guard 
         if (loadNextScene && !string.IsNullOrEmpty(nextSceneName) && !_isLoadingNextScene)
         {
             _isLoadingNextScene = true;
-            StartCoroutine(LoadNextSceneReliable(nextSceneName)); // NEW
+            StartCoroutine(LoadNextSceneReliable(nextSceneName)); 
         }
         else
         {
             if (loadNextScene && string.IsNullOrEmpty(nextSceneName))
-                Debug.LogWarning("[EventManager] loadNextScene is true but nextSceneName is empty."); // NEW
+                Debug.LogWarning("[EventManager] loadNextScene is true but nextSceneName is empty."); 
         }
     }
 
@@ -204,7 +204,7 @@ public class EventManager : MonoBehaviour
                 else
                 {
                     Debug.LogWarning($"[EventManager] No valid branch assigned for choice index {choice.chosenIndex} in event '{e.eventName}'. Continuing to next event normally.");
-                    // Do NOT yield break here, let it continue naturally
+                    // Do not yield break here, let it continue naturally
                 }
 
                 }
@@ -358,7 +358,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    // ===== Reliable async scene loading (NEW) =====
+    // Reliable async scene loading
     private IEnumerator LoadNextSceneReliable(string sceneName)
     {
         // Verify the scene exists in Build Settings
@@ -391,7 +391,7 @@ public class EventManager : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    // Editor-only validation to catch typos/missing scenes (NEW)
+    // Editor-only validation to catch typos/missing scenes
     private void OnValidate()
     {
         if (loadNextScene && !string.IsNullOrEmpty(nextSceneName))
@@ -409,5 +409,9 @@ public class EventManager : MonoBehaviour
             }
         }
     }
-#endif
+#endif // To ensure editor-only validation code runs in Unity Editor but is excluded from the final build to avoid errors.
 }
+
+//Reference 
+// https://www.youtube.com/watch?v=6mQvfPq9yS8
+// This script was created with inspiration from Copolit and Chatgpt
